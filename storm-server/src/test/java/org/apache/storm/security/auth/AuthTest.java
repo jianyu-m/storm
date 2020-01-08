@@ -41,7 +41,7 @@ import org.apache.storm.security.auth.authorizer.SimpleWhitelistAuthorizer;
 import org.apache.storm.security.auth.digest.DigestSaslTransportPlugin;
 import org.apache.storm.security.auth.workertoken.WorkerTokenManager;
 import org.apache.storm.testing.InProcessZookeeper;
-import org.apache.storm.thrift.transport.TTransportException;
+import org.apache.thrift.transport.TTransportException;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.NimbusClient;
 import org.apache.storm.utils.Time;

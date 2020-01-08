@@ -29,7 +29,7 @@ import java.util.Map;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.Testing;
-import org.apache.storm.Thrift;
+import org.apache.thrift;
 import org.apache.storm.generated.GlobalStreamId;
 import org.apache.storm.generated.Grouping;
 import org.apache.storm.generated.StormTopology;

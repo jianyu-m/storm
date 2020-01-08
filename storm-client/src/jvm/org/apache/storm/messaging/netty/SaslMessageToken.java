@@ -12,8 +12,8 @@
 
 package org.apache.storm.messaging.netty;
 
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
-import org.apache.storm.shade.io.netty.buffer.Unpooled;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

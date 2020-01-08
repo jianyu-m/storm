@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.storm.generated.GlobalStreamId;
 import org.apache.storm.generated.StormTopology;
-import org.apache.storm.shade.com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet;
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.state.State;
 import org.apache.storm.task.TopologyContext;

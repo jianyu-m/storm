@@ -19,8 +19,8 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.storm.messaging.TaskMessage;
 import org.apache.storm.serialization.KryoValuesDeserializer;
-import org.apache.storm.shade.io.netty.channel.ChannelHandlerContext;
-import org.apache.storm.shade.io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

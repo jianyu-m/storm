@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import org.apache.storm.shade.com.google.common.collect.Lists;
+import com.google.common.collect.Lists;
 import org.apache.storm.task.WorkerTopologyContext;
 import org.junit.Test;
 

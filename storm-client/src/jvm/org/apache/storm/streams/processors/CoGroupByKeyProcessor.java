@@ -13,8 +13,8 @@
 package org.apache.storm.streams.processors;
 
 import java.util.ArrayList;
-import org.apache.storm.shade.com.google.common.collect.ArrayListMultimap;
-import org.apache.storm.shade.com.google.common.collect.Multimap;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import org.apache.storm.streams.Pair;
 
 /**

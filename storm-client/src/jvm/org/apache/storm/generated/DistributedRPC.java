@@ -29,43 +29,43 @@ public class DistributedRPC {
 
   public interface Iface {
 
-    public java.lang.String execute(java.lang.String functionName, java.lang.String funcArgs) throws DRPCExecutionException, AuthorizationException, org.apache.storm.thrift.TException;
+    public java.lang.String execute(java.lang.String functionName, java.lang.String funcArgs) throws DRPCExecutionException, AuthorizationException, org.apache.thrift.TException;
 
   }
 
   public interface AsyncIface {
 
-    public void execute(java.lang.String functionName, java.lang.String funcArgs, org.apache.storm.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler) throws org.apache.storm.thrift.TException;
+    public void execute(java.lang.String functionName, java.lang.String funcArgs, org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler) throws org.apache.thrift.TException;
 
   }
 
-  public static class Client extends org.apache.storm.thrift.TServiceClient implements Iface {
-    public static class Factory implements org.apache.storm.thrift.TServiceClientFactory<Client> {
+  public static class Client extends org.apache.thrift.TServiceClient implements Iface {
+    public static class Factory implements org.apache.thrift.TServiceClientFactory<Client> {
       public Factory() {}
-      public Client getClient(org.apache.storm.thrift.protocol.TProtocol prot) {
+      public Client getClient(org.apache.thrift.protocol.TProtocol prot) {
         return new Client(prot);
       }
-      public Client getClient(org.apache.storm.thrift.protocol.TProtocol iprot, org.apache.storm.thrift.protocol.TProtocol oprot) {
+      public Client getClient(org.apache.thrift.protocol.TProtocol iprot, org.apache.thrift.protocol.TProtocol oprot) {
         return new Client(iprot, oprot);
       }
     }
 
-    public Client(org.apache.storm.thrift.protocol.TProtocol prot)
+    public Client(org.apache.thrift.protocol.TProtocol prot)
     {
       super(prot, prot);
     }
 
-    public Client(org.apache.storm.thrift.protocol.TProtocol iprot, org.apache.storm.thrift.protocol.TProtocol oprot) {
+    public Client(org.apache.thrift.protocol.TProtocol iprot, org.apache.thrift.protocol.TProtocol oprot) {
       super(iprot, oprot);
     }
 
-    public java.lang.String execute(java.lang.String functionName, java.lang.String funcArgs) throws DRPCExecutionException, AuthorizationException, org.apache.storm.thrift.TException
+    public java.lang.String execute(java.lang.String functionName, java.lang.String funcArgs) throws DRPCExecutionException, AuthorizationException, org.apache.thrift.TException
     {
       send_execute(functionName, funcArgs);
       return recv_execute();
     }
 
-    public void send_execute(java.lang.String functionName, java.lang.String funcArgs) throws org.apache.storm.thrift.TException
+    public void send_execute(java.lang.String functionName, java.lang.String funcArgs) throws org.apache.thrift.TException
     {
       execute_args args = new execute_args();
       args.set_functionName(functionName);
@@ -73,7 +73,7 @@ public class DistributedRPC {
       sendBase("execute", args);
     }
 
-    public java.lang.String recv_execute() throws DRPCExecutionException, AuthorizationException, org.apache.storm.thrift.TException
+    public java.lang.String recv_execute() throws DRPCExecutionException, AuthorizationException, org.apache.thrift.TException
     {
       execute_result result = new execute_result();
       receiveBase(result, "execute");
@@ -86,45 +86,45 @@ public class DistributedRPC {
       if (result.aze != null) {
         throw result.aze;
       }
-      throw new org.apache.storm.thrift.TApplicationException(org.apache.storm.thrift.TApplicationException.MISSING_RESULT, "execute failed: unknown result");
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "execute failed: unknown result");
     }
 
   }
-  public static class AsyncClient extends org.apache.storm.thrift.async.TAsyncClient implements AsyncIface {
-    public static class Factory implements org.apache.storm.thrift.async.TAsyncClientFactory<AsyncClient> {
-      private org.apache.storm.thrift.async.TAsyncClientManager clientManager;
-      private org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory;
-      public Factory(org.apache.storm.thrift.async.TAsyncClientManager clientManager, org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory) {
+  public static class AsyncClient extends org.apache.thrift.async.TAsyncClient implements AsyncIface {
+    public static class Factory implements org.apache.thrift.async.TAsyncClientFactory<AsyncClient> {
+      private org.apache.thrift.async.TAsyncClientManager clientManager;
+      private org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+      public Factory(org.apache.thrift.async.TAsyncClientManager clientManager, org.apache.thrift.protocol.TProtocolFactory protocolFactory) {
         this.clientManager = clientManager;
         this.protocolFactory = protocolFactory;
       }
-      public AsyncClient getAsyncClient(org.apache.storm.thrift.transport.TNonblockingTransport transport) {
+      public AsyncClient getAsyncClient(org.apache.thrift.transport.TNonblockingTransport transport) {
         return new AsyncClient(protocolFactory, clientManager, transport);
       }
     }
 
-    public AsyncClient(org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory, org.apache.storm.thrift.async.TAsyncClientManager clientManager, org.apache.storm.thrift.transport.TNonblockingTransport transport) {
+    public AsyncClient(org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.async.TAsyncClientManager clientManager, org.apache.thrift.transport.TNonblockingTransport transport) {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void execute(java.lang.String functionName, java.lang.String funcArgs, org.apache.storm.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler) throws org.apache.storm.thrift.TException {
+    public void execute(java.lang.String functionName, java.lang.String funcArgs, org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       execute_call method_call = new execute_call(functionName, funcArgs, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class execute_call extends org.apache.storm.thrift.async.TAsyncMethodCall<java.lang.String> {
+    public static class execute_call extends org.apache.thrift.async.TAsyncMethodCall<java.lang.String> {
       private java.lang.String functionName;
       private java.lang.String funcArgs;
-      public execute_call(java.lang.String functionName, java.lang.String funcArgs, org.apache.storm.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler, org.apache.storm.thrift.async.TAsyncClient client, org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory, org.apache.storm.thrift.transport.TNonblockingTransport transport) throws org.apache.storm.thrift.TException {
+      public execute_call(java.lang.String functionName, java.lang.String funcArgs, org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.functionName = functionName;
         this.funcArgs = funcArgs;
       }
 
-      public void write_args(org.apache.storm.thrift.protocol.TProtocol prot) throws org.apache.storm.thrift.TException {
-        prot.writeMessageBegin(new org.apache.storm.thrift.protocol.TMessage("execute", org.apache.storm.thrift.protocol.TMessageType.CALL, 0));
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("execute", org.apache.thrift.protocol.TMessageType.CALL, 0));
         execute_args args = new execute_args();
         args.set_functionName(functionName);
         args.set_funcArgs(funcArgs);
@@ -132,34 +132,34 @@ public class DistributedRPC {
         prot.writeMessageEnd();
       }
 
-      public java.lang.String getResult() throws DRPCExecutionException, AuthorizationException, org.apache.storm.thrift.TException {
-        if (getState() != org.apache.storm.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public java.lang.String getResult() throws DRPCExecutionException, AuthorizationException, org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new java.lang.IllegalStateException("Method call not finished!");
         }
-        org.apache.storm.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.storm.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
-        org.apache.storm.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
         return (new Client(prot)).recv_execute();
       }
     }
 
   }
 
-  public static class Processor<I extends Iface> extends org.apache.storm.thrift.TBaseProcessor<I> implements org.apache.storm.thrift.TProcessor {
+  public static class Processor<I extends Iface> extends org.apache.thrift.TBaseProcessor<I> implements org.apache.thrift.TProcessor {
     private static final org.slf4j.Logger _LOGGER = org.slf4j.LoggerFactory.getLogger(Processor.class.getName());
     public Processor(I iface) {
-      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.storm.thrift.ProcessFunction<I, ? extends org.apache.storm.thrift.TBase>>()));
+      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>>()));
     }
 
-    protected Processor(I iface, java.util.Map<java.lang.String, org.apache.storm.thrift.ProcessFunction<I, ? extends org.apache.storm.thrift.TBase>> processMap) {
+    protected Processor(I iface, java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> processMap) {
       super(iface, getProcessMap(processMap));
     }
 
-    private static <I extends Iface> java.util.Map<java.lang.String,  org.apache.storm.thrift.ProcessFunction<I, ? extends org.apache.storm.thrift.TBase>> getProcessMap(java.util.Map<java.lang.String, org.apache.storm.thrift.ProcessFunction<I, ? extends  org.apache.storm.thrift.TBase>> processMap) {
+    private static <I extends Iface> java.util.Map<java.lang.String,  org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> getProcessMap(java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
       processMap.put("execute", new execute());
       return processMap;
     }
 
-    public static class execute<I extends Iface> extends org.apache.storm.thrift.ProcessFunction<I, execute_args> {
+    public static class execute<I extends Iface> extends org.apache.thrift.ProcessFunction<I, execute_args> {
       public execute() {
         super("execute");
       }
@@ -177,7 +177,7 @@ public class DistributedRPC {
         return false;
       }
 
-      public execute_result getResult(I iface, execute_args args) throws org.apache.storm.thrift.TException {
+      public execute_result getResult(I iface, execute_args args) throws org.apache.thrift.TException {
         execute_result result = new execute_result();
         try {
           result.success = iface.execute(args.functionName, args.funcArgs);
@@ -192,22 +192,22 @@ public class DistributedRPC {
 
   }
 
-  public static class AsyncProcessor<I extends AsyncIface> extends org.apache.storm.thrift.TBaseAsyncProcessor<I> {
+  public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
     private static final org.slf4j.Logger _LOGGER = org.slf4j.LoggerFactory.getLogger(AsyncProcessor.class.getName());
     public AsyncProcessor(I iface) {
-      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.storm.thrift.AsyncProcessFunction<I, ? extends org.apache.storm.thrift.TBase, ?>>()));
+      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.thrift.AsyncProcessFunction<I, ? extends org.apache.thrift.TBase, ?>>()));
     }
 
-    protected AsyncProcessor(I iface, java.util.Map<java.lang.String,  org.apache.storm.thrift.AsyncProcessFunction<I, ? extends  org.apache.storm.thrift.TBase, ?>> processMap) {
+    protected AsyncProcessor(I iface, java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       super(iface, getProcessMap(processMap));
     }
 
-    private static <I extends AsyncIface> java.util.Map<java.lang.String,  org.apache.storm.thrift.AsyncProcessFunction<I, ? extends  org.apache.storm.thrift.TBase,?>> getProcessMap(java.util.Map<java.lang.String,  org.apache.storm.thrift.AsyncProcessFunction<I, ? extends  org.apache.storm.thrift.TBase, ?>> processMap) {
+    private static <I extends AsyncIface> java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase,?>> getProcessMap(java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       processMap.put("execute", new execute());
       return processMap;
     }
 
-    public static class execute<I extends AsyncIface> extends org.apache.storm.thrift.AsyncProcessFunction<I, execute_args, java.lang.String> {
+    public static class execute<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, execute_args, java.lang.String> {
       public execute() {
         super("execute");
       }
@@ -216,15 +216,15 @@ public class DistributedRPC {
         return new execute_args();
       }
 
-      public org.apache.storm.thrift.async.AsyncMethodCallback<java.lang.String> getResultHandler(final org.apache.storm.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
-        final org.apache.storm.thrift.AsyncProcessFunction fcall = this;
-        return new org.apache.storm.thrift.async.AsyncMethodCallback<java.lang.String>() { 
+      public org.apache.thrift.async.AsyncMethodCallback<java.lang.String> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new org.apache.thrift.async.AsyncMethodCallback<java.lang.String>() {
           public void onComplete(java.lang.String o) {
             execute_result result = new execute_result();
             result.success = o;
             try {
-              fcall.sendResponse(fb, result, org.apache.storm.thrift.protocol.TMessageType.REPLY,seqid);
-            } catch (org.apache.storm.thrift.transport.TTransportException e) {
+              fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+            } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
             } catch (java.lang.Exception e) {
@@ -233,8 +233,8 @@ public class DistributedRPC {
             }
           }
           public void onError(java.lang.Exception e) {
-            byte msgType = org.apache.storm.thrift.protocol.TMessageType.REPLY;
-            org.apache.storm.thrift.TSerializable msg;
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TSerializable msg;
             execute_result result = new execute_result();
             if (e instanceof DRPCExecutionException) {
               result.e = (DRPCExecutionException) e;
@@ -244,18 +244,18 @@ public class DistributedRPC {
               result.aze = (AuthorizationException) e;
               result.set_aze_isSet(true);
               msg = result;
-            } else if (e instanceof org.apache.storm.thrift.transport.TTransportException) {
+            } else if (e instanceof org.apache.thrift.transport.TTransportException) {
               _LOGGER.error("TTransportException inside handler", e);
               fb.close();
               return;
-            } else if (e instanceof org.apache.storm.thrift.TApplicationException) {
+            } else if (e instanceof org.apache.thrift.TApplicationException) {
               _LOGGER.error("TApplicationException inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = (org.apache.storm.thrift.TApplicationException)e;
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TApplicationException)e;
             } else {
               _LOGGER.error("Exception inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = new org.apache.storm.thrift.TApplicationException(org.apache.storm.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
@@ -271,27 +271,27 @@ public class DistributedRPC {
         return false;
       }
 
-      public void start(I iface, execute_args args, org.apache.storm.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler) throws org.apache.storm.thrift.TException {
+      public void start(I iface, execute_args args, org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler) throws org.apache.thrift.TException {
         iface.execute(args.functionName, args.funcArgs,resultHandler);
       }
     }
 
   }
 
-  public static class execute_args implements org.apache.storm.thrift.TBase<execute_args, execute_args._Fields>, java.io.Serializable, Cloneable, Comparable<execute_args>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("execute_args");
+  public static class execute_args implements org.apache.thrift.TBase<execute_args, execute_args._Fields>, java.io.Serializable, Cloneable, Comparable<execute_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("execute_args");
 
-    private static final org.apache.storm.thrift.protocol.TField FUNCTION_NAME_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("functionName", org.apache.storm.thrift.protocol.TType.STRING, (short)1);
-    private static final org.apache.storm.thrift.protocol.TField FUNC_ARGS_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("funcArgs", org.apache.storm.thrift.protocol.TType.STRING, (short)2);
+    private static final org.apache.thrift.protocol.TField FUNCTION_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("functionName", org.apache.thrift.protocol.TType.STRING, (short)1);
+    private static final org.apache.thrift.protocol.TField FUNC_ARGS_FIELD_DESC = new org.apache.thrift.protocol.TField("funcArgs", org.apache.thrift.protocol.TType.STRING, (short)2);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new execute_argsStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new execute_argsTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new execute_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new execute_argsTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable java.lang.String functionName; // required
-    private @org.apache.storm.thrift.annotation.Nullable java.lang.String funcArgs; // required
+    private @org.apache.thrift.annotation.Nullable java.lang.String functionName; // required
+    private @org.apache.thrift.annotation.Nullable java.lang.String funcArgs; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       FUNCTION_NAME((short)1, "functionName"),
       FUNC_ARGS((short)2, "funcArgs");
 
@@ -306,7 +306,7 @@ public class DistributedRPC {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 1: // FUNCTION_NAME
@@ -331,7 +331,7 @@ public class DistributedRPC {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -354,15 +354,15 @@ public class DistributedRPC {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.FUNCTION_NAME, new org.apache.storm.thrift.meta_data.FieldMetaData("functionName", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.FieldValueMetaData(org.apache.storm.thrift.protocol.TType.STRING)));
-      tmpMap.put(_Fields.FUNC_ARGS, new org.apache.storm.thrift.meta_data.FieldMetaData("funcArgs", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.FieldValueMetaData(org.apache.storm.thrift.protocol.TType.STRING)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.FUNCTION_NAME, new org.apache.thrift.meta_data.FieldMetaData("functionName", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.FUNC_ARGS, new org.apache.thrift.meta_data.FieldMetaData("funcArgs", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(execute_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(execute_args.class, metaDataMap);
     }
 
     public execute_args() {
@@ -399,12 +399,12 @@ public class DistributedRPC {
       this.funcArgs = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.String get_functionName() {
       return this.functionName;
     }
 
-    public void set_functionName(@org.apache.storm.thrift.annotation.Nullable java.lang.String functionName) {
+    public void set_functionName(@org.apache.thrift.annotation.Nullable java.lang.String functionName) {
       this.functionName = functionName;
     }
 
@@ -423,12 +423,12 @@ public class DistributedRPC {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.String get_funcArgs() {
       return this.funcArgs;
     }
 
-    public void set_funcArgs(@org.apache.storm.thrift.annotation.Nullable java.lang.String funcArgs) {
+    public void set_funcArgs(@org.apache.thrift.annotation.Nullable java.lang.String funcArgs) {
       this.funcArgs = funcArgs;
     }
 
@@ -447,7 +447,7 @@ public class DistributedRPC {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case FUNCTION_NAME:
         if (value == null) {
@@ -468,7 +468,7 @@ public class DistributedRPC {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case FUNCTION_NAME:
@@ -560,7 +560,7 @@ public class DistributedRPC {
         return lastComparison;
       }
       if (is_set_functionName()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.functionName, other.functionName);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.functionName, other.functionName);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -570,7 +570,7 @@ public class DistributedRPC {
         return lastComparison;
       }
       if (is_set_funcArgs()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.funcArgs, other.funcArgs);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.funcArgs, other.funcArgs);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -578,16 +578,16 @@ public class DistributedRPC {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
     }
 
@@ -615,63 +615,63 @@ public class DistributedRPC {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class execute_argsStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class execute_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public execute_argsStandardScheme getScheme() {
         return new execute_argsStandardScheme();
       }
     }
 
-    private static class execute_argsStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<execute_args> {
+    private static class execute_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<execute_args> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, execute_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, execute_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 1: // FUNCTION_NAME
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRING) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
                 struct.functionName = iprot.readString();
                 struct.set_functionName_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             case 2: // FUNC_ARGS
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRING) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
                 struct.funcArgs = iprot.readString();
                 struct.set_funcArgs_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -679,7 +679,7 @@ public class DistributedRPC {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, execute_args struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, execute_args struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -699,17 +699,17 @@ public class DistributedRPC {
 
     }
 
-    private static class execute_argsTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class execute_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public execute_argsTupleScheme getScheme() {
         return new execute_argsTupleScheme();
       }
     }
 
-    private static class execute_argsTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<execute_args> {
+    private static class execute_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<execute_args> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, execute_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, execute_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_functionName()) {
           optionals.set(0);
@@ -727,8 +727,8 @@ public class DistributedRPC {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, execute_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, execute_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(2);
         if (incoming.get(0)) {
           struct.functionName = iprot.readString();
@@ -741,27 +741,27 @@ public class DistributedRPC {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 
-  public static class execute_result implements org.apache.storm.thrift.TBase<execute_result, execute_result._Fields>, java.io.Serializable, Cloneable, Comparable<execute_result>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("execute_result");
+  public static class execute_result implements org.apache.thrift.TBase<execute_result, execute_result._Fields>, java.io.Serializable, Cloneable, Comparable<execute_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("execute_result");
 
-    private static final org.apache.storm.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("success", org.apache.storm.thrift.protocol.TType.STRING, (short)0);
-    private static final org.apache.storm.thrift.protocol.TField E_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("e", org.apache.storm.thrift.protocol.TType.STRUCT, (short)1);
-    private static final org.apache.storm.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("aze", org.apache.storm.thrift.protocol.TType.STRUCT, (short)2);
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.STRING, (short)0);
+    private static final org.apache.thrift.protocol.TField E_FIELD_DESC = new org.apache.thrift.protocol.TField("e", org.apache.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.thrift.protocol.TField("aze", org.apache.thrift.protocol.TType.STRUCT, (short)2);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new execute_resultStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new execute_resultTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new execute_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new execute_resultTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable java.lang.String success; // required
-    private @org.apache.storm.thrift.annotation.Nullable DRPCExecutionException e; // required
-    private @org.apache.storm.thrift.annotation.Nullable AuthorizationException aze; // required
+    private @org.apache.thrift.annotation.Nullable java.lang.String success; // required
+    private @org.apache.thrift.annotation.Nullable DRPCExecutionException e; // required
+    private @org.apache.thrift.annotation.Nullable AuthorizationException aze; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       SUCCESS((short)0, "success"),
       E((short)1, "e"),
       AZE((short)2, "aze");
@@ -777,7 +777,7 @@ public class DistributedRPC {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 0: // SUCCESS
@@ -804,7 +804,7 @@ public class DistributedRPC {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -827,17 +827,17 @@ public class DistributedRPC {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.SUCCESS, new org.apache.storm.thrift.meta_data.FieldMetaData("success", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.FieldValueMetaData(org.apache.storm.thrift.protocol.TType.STRING)));
-      tmpMap.put(_Fields.E, new org.apache.storm.thrift.meta_data.FieldMetaData("e", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, DRPCExecutionException.class)));
-      tmpMap.put(_Fields.AZE, new org.apache.storm.thrift.meta_data.FieldMetaData("aze", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.E, new org.apache.thrift.meta_data.FieldMetaData("e", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, DRPCExecutionException.class)));
+      tmpMap.put(_Fields.AZE, new org.apache.thrift.meta_data.FieldMetaData("aze", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(execute_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(execute_result.class, metaDataMap);
     }
 
     public execute_result() {
@@ -880,12 +880,12 @@ public class DistributedRPC {
       this.aze = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.String get_success() {
       return this.success;
     }
 
-    public void set_success(@org.apache.storm.thrift.annotation.Nullable java.lang.String success) {
+    public void set_success(@org.apache.thrift.annotation.Nullable java.lang.String success) {
       this.success = success;
     }
 
@@ -904,12 +904,12 @@ public class DistributedRPC {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public DRPCExecutionException get_e() {
       return this.e;
     }
 
-    public void set_e(@org.apache.storm.thrift.annotation.Nullable DRPCExecutionException e) {
+    public void set_e(@org.apache.thrift.annotation.Nullable DRPCExecutionException e) {
       this.e = e;
     }
 
@@ -928,12 +928,12 @@ public class DistributedRPC {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public AuthorizationException get_aze() {
       return this.aze;
     }
 
-    public void set_aze(@org.apache.storm.thrift.annotation.Nullable AuthorizationException aze) {
+    public void set_aze(@org.apache.thrift.annotation.Nullable AuthorizationException aze) {
       this.aze = aze;
     }
 
@@ -952,7 +952,7 @@ public class DistributedRPC {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case SUCCESS:
         if (value == null) {
@@ -981,7 +981,7 @@ public class DistributedRPC {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case SUCCESS:
@@ -1091,7 +1091,7 @@ public class DistributedRPC {
         return lastComparison;
       }
       if (is_set_success()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.success, other.success);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -1101,7 +1101,7 @@ public class DistributedRPC {
         return lastComparison;
       }
       if (is_set_e()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.e, other.e);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.e, other.e);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -1111,7 +1111,7 @@ public class DistributedRPC {
         return lastComparison;
       }
       if (is_set_aze()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.aze, other.aze);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.aze, other.aze);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -1119,16 +1119,16 @@ public class DistributedRPC {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
       }
 
@@ -1164,73 +1164,73 @@ public class DistributedRPC {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class execute_resultStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class execute_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public execute_resultStandardScheme getScheme() {
         return new execute_resultStandardScheme();
       }
     }
 
-    private static class execute_resultStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<execute_result> {
+    private static class execute_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<execute_result> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, execute_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, execute_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 0: // SUCCESS
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRING) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
                 struct.success = iprot.readString();
                 struct.set_success_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             case 1: // E
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.e = new DRPCExecutionException();
                 struct.e.read(iprot);
                 struct.set_e_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             case 2: // AZE
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.aze = new AuthorizationException();
                 struct.aze.read(iprot);
                 struct.set_aze_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -1238,7 +1238,7 @@ public class DistributedRPC {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, execute_result struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, execute_result struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1263,17 +1263,17 @@ public class DistributedRPC {
 
     }
 
-    private static class execute_resultTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class execute_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public execute_resultTupleScheme getScheme() {
         return new execute_resultTupleScheme();
       }
     }
 
-    private static class execute_resultTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<execute_result> {
+    private static class execute_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<execute_result> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, execute_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, execute_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_success()) {
           optionals.set(0);
@@ -1297,8 +1297,8 @@ public class DistributedRPC {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, execute_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, execute_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(3);
         if (incoming.get(0)) {
           struct.success = iprot.readString();
@@ -1317,8 +1317,8 @@ public class DistributedRPC {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 

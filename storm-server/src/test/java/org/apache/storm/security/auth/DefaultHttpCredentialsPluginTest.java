@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.security.auth.Subject;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.storm.shade.com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;

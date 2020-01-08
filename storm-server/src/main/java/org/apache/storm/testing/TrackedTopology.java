@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.storm.ILocalCluster;
 import org.apache.storm.Testing;
-import org.apache.storm.Thrift;
+import org.apache.thrift;
 import org.apache.storm.generated.Bolt;
 import org.apache.storm.generated.SpoutSpec;
 import org.apache.storm.generated.StormTopology;

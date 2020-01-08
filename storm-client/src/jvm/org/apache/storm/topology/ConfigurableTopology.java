@@ -30,9 +30,9 @@ import java.util.List;
 import java.util.Map;
 import org.apache.storm.Config;
 import org.apache.storm.StormSubmitter;
-import org.apache.storm.shade.org.apache.commons.lang.StringUtils;
-import org.apache.storm.shade.org.yaml.snakeyaml.Yaml;
-import org.apache.storm.shade.org.yaml.snakeyaml.constructor.SafeConstructor;
+import org.apache.commons.lang.StringUtils;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 import org.apache.storm.utils.Utils;
 
 /**

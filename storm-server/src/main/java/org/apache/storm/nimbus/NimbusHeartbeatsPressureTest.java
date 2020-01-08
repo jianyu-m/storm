@@ -25,8 +25,8 @@ import org.apache.storm.Config;
 import org.apache.storm.generated.ExecutorInfo;
 import org.apache.storm.generated.SupervisorWorkerHeartbeat;
 import org.apache.storm.generated.SupervisorWorkerHeartbeats;
-import org.apache.storm.thrift.TException;
-import org.apache.storm.thrift.transport.TTransportException;
+import org.apache.thrift.TException;
+import org.apache.thrift.transport.TTransportException;
 import org.apache.storm.utils.NimbusClient;
 import org.apache.storm.utils.Utils;
 

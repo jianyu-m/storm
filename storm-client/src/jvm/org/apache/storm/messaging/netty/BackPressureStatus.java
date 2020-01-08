@@ -23,8 +23,8 @@ import java.util.Collection;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.storm.serialization.KryoValuesDeserializer;
 import org.apache.storm.serialization.KryoValuesSerializer;
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
-import org.apache.storm.shade.io.netty.buffer.ByteBufAllocator;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
 
 // Instances of this type are sent from NettyWorker to upstream WorkerTransfer to indicate BackPressure situation
 public class BackPressureStatus {

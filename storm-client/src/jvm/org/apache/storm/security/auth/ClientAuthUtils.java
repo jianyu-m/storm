@@ -42,7 +42,7 @@ import org.apache.storm.generated.WorkerToken;
 import org.apache.storm.generated.WorkerTokenInfo;
 import org.apache.storm.generated.WorkerTokenServiceType;
 import org.apache.storm.security.INimbusCredentialPlugin;
-import org.apache.storm.shade.org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.storm.utils.ObjectReader;
 import org.apache.storm.utils.ReflectionUtils;
 import org.apache.storm.utils.Utils;

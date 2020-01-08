@@ -12,7 +12,7 @@
 
 package org.apache.storm.callback;
 
-import org.apache.storm.shade.org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.Watcher;
 
 @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
 public interface ZKStateChangedCallback {

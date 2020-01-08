@@ -34,68 +34,68 @@ public class Supervisor {
      * 
      * @param assignments
      */
-    public void sendSupervisorAssignments(SupervisorAssignments assignments) throws AuthorizationException, org.apache.storm.thrift.TException;
+    public void sendSupervisorAssignments(SupervisorAssignments assignments) throws AuthorizationException, org.apache.thrift.TException;
 
     /**
      * Get local assignment for a storm
      * 
      * @param id
      */
-    public Assignment getLocalAssignmentForStorm(java.lang.String id) throws NotAliveException, AuthorizationException, org.apache.storm.thrift.TException;
+    public Assignment getLocalAssignmentForStorm(java.lang.String id) throws NotAliveException, AuthorizationException, org.apache.thrift.TException;
 
     /**
      * Send worker heartbeat to local supervisor
      * 
      * @param heartbeat
      */
-    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat) throws AuthorizationException, org.apache.storm.thrift.TException;
+    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat) throws AuthorizationException, org.apache.thrift.TException;
 
   }
 
   public interface AsyncIface {
 
-    public void sendSupervisorAssignments(SupervisorAssignments assignments, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.storm.thrift.TException;
+    public void sendSupervisorAssignments(SupervisorAssignments assignments, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
 
-    public void getLocalAssignmentForStorm(java.lang.String id, org.apache.storm.thrift.async.AsyncMethodCallback<Assignment> resultHandler) throws org.apache.storm.thrift.TException;
+    public void getLocalAssignmentForStorm(java.lang.String id, org.apache.thrift.async.AsyncMethodCallback<Assignment> resultHandler) throws org.apache.thrift.TException;
 
-    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.storm.thrift.TException;
+    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
 
   }
 
-  public static class Client extends org.apache.storm.thrift.TServiceClient implements Iface {
-    public static class Factory implements org.apache.storm.thrift.TServiceClientFactory<Client> {
+  public static class Client extends org.apache.thrift.TServiceClient implements Iface {
+    public static class Factory implements org.apache.thrift.TServiceClientFactory<Client> {
       public Factory() {}
-      public Client getClient(org.apache.storm.thrift.protocol.TProtocol prot) {
+      public Client getClient(org.apache.thrift.protocol.TProtocol prot) {
         return new Client(prot);
       }
-      public Client getClient(org.apache.storm.thrift.protocol.TProtocol iprot, org.apache.storm.thrift.protocol.TProtocol oprot) {
+      public Client getClient(org.apache.thrift.protocol.TProtocol iprot, org.apache.thrift.protocol.TProtocol oprot) {
         return new Client(iprot, oprot);
       }
     }
 
-    public Client(org.apache.storm.thrift.protocol.TProtocol prot)
+    public Client(org.apache.thrift.protocol.TProtocol prot)
     {
       super(prot, prot);
     }
 
-    public Client(org.apache.storm.thrift.protocol.TProtocol iprot, org.apache.storm.thrift.protocol.TProtocol oprot) {
+    public Client(org.apache.thrift.protocol.TProtocol iprot, org.apache.thrift.protocol.TProtocol oprot) {
       super(iprot, oprot);
     }
 
-    public void sendSupervisorAssignments(SupervisorAssignments assignments) throws AuthorizationException, org.apache.storm.thrift.TException
+    public void sendSupervisorAssignments(SupervisorAssignments assignments) throws AuthorizationException, org.apache.thrift.TException
     {
       send_sendSupervisorAssignments(assignments);
       recv_sendSupervisorAssignments();
     }
 
-    public void send_sendSupervisorAssignments(SupervisorAssignments assignments) throws org.apache.storm.thrift.TException
+    public void send_sendSupervisorAssignments(SupervisorAssignments assignments) throws org.apache.thrift.TException
     {
       sendSupervisorAssignments_args args = new sendSupervisorAssignments_args();
       args.set_assignments(assignments);
       sendBase("sendSupervisorAssignments", args);
     }
 
-    public void recv_sendSupervisorAssignments() throws AuthorizationException, org.apache.storm.thrift.TException
+    public void recv_sendSupervisorAssignments() throws AuthorizationException, org.apache.thrift.TException
     {
       sendSupervisorAssignments_result result = new sendSupervisorAssignments_result();
       receiveBase(result, "sendSupervisorAssignments");
@@ -105,20 +105,20 @@ public class Supervisor {
       return;
     }
 
-    public Assignment getLocalAssignmentForStorm(java.lang.String id) throws NotAliveException, AuthorizationException, org.apache.storm.thrift.TException
+    public Assignment getLocalAssignmentForStorm(java.lang.String id) throws NotAliveException, AuthorizationException, org.apache.thrift.TException
     {
       send_getLocalAssignmentForStorm(id);
       return recv_getLocalAssignmentForStorm();
     }
 
-    public void send_getLocalAssignmentForStorm(java.lang.String id) throws org.apache.storm.thrift.TException
+    public void send_getLocalAssignmentForStorm(java.lang.String id) throws org.apache.thrift.TException
     {
       getLocalAssignmentForStorm_args args = new getLocalAssignmentForStorm_args();
       args.set_id(id);
       sendBase("getLocalAssignmentForStorm", args);
     }
 
-    public Assignment recv_getLocalAssignmentForStorm() throws NotAliveException, AuthorizationException, org.apache.storm.thrift.TException
+    public Assignment recv_getLocalAssignmentForStorm() throws NotAliveException, AuthorizationException, org.apache.thrift.TException
     {
       getLocalAssignmentForStorm_result result = new getLocalAssignmentForStorm_result();
       receiveBase(result, "getLocalAssignmentForStorm");
@@ -131,23 +131,23 @@ public class Supervisor {
       if (result.aze != null) {
         throw result.aze;
       }
-      throw new org.apache.storm.thrift.TApplicationException(org.apache.storm.thrift.TApplicationException.MISSING_RESULT, "getLocalAssignmentForStorm failed: unknown result");
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getLocalAssignmentForStorm failed: unknown result");
     }
 
-    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat) throws AuthorizationException, org.apache.storm.thrift.TException
+    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat) throws AuthorizationException, org.apache.thrift.TException
     {
       send_sendSupervisorWorkerHeartbeat(heartbeat);
       recv_sendSupervisorWorkerHeartbeat();
     }
 
-    public void send_sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat) throws org.apache.storm.thrift.TException
+    public void send_sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat) throws org.apache.thrift.TException
     {
       sendSupervisorWorkerHeartbeat_args args = new sendSupervisorWorkerHeartbeat_args();
       args.set_heartbeat(heartbeat);
       sendBase("sendSupervisorWorkerHeartbeat", args);
     }
 
-    public void recv_sendSupervisorWorkerHeartbeat() throws AuthorizationException, org.apache.storm.thrift.TException
+    public void recv_sendSupervisorWorkerHeartbeat() throws AuthorizationException, org.apache.thrift.TException
     {
       sendSupervisorWorkerHeartbeat_result result = new sendSupervisorWorkerHeartbeat_result();
       receiveBase(result, "sendSupervisorWorkerHeartbeat");
@@ -158,139 +158,139 @@ public class Supervisor {
     }
 
   }
-  public static class AsyncClient extends org.apache.storm.thrift.async.TAsyncClient implements AsyncIface {
-    public static class Factory implements org.apache.storm.thrift.async.TAsyncClientFactory<AsyncClient> {
-      private org.apache.storm.thrift.async.TAsyncClientManager clientManager;
-      private org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory;
-      public Factory(org.apache.storm.thrift.async.TAsyncClientManager clientManager, org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory) {
+  public static class AsyncClient extends org.apache.thrift.async.TAsyncClient implements AsyncIface {
+    public static class Factory implements org.apache.thrift.async.TAsyncClientFactory<AsyncClient> {
+      private org.apache.thrift.async.TAsyncClientManager clientManager;
+      private org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+      public Factory(org.apache.thrift.async.TAsyncClientManager clientManager, org.apache.thrift.protocol.TProtocolFactory protocolFactory) {
         this.clientManager = clientManager;
         this.protocolFactory = protocolFactory;
       }
-      public AsyncClient getAsyncClient(org.apache.storm.thrift.transport.TNonblockingTransport transport) {
+      public AsyncClient getAsyncClient(org.apache.thrift.transport.TNonblockingTransport transport) {
         return new AsyncClient(protocolFactory, clientManager, transport);
       }
     }
 
-    public AsyncClient(org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory, org.apache.storm.thrift.async.TAsyncClientManager clientManager, org.apache.storm.thrift.transport.TNonblockingTransport transport) {
+    public AsyncClient(org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.async.TAsyncClientManager clientManager, org.apache.thrift.transport.TNonblockingTransport transport) {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void sendSupervisorAssignments(SupervisorAssignments assignments, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.storm.thrift.TException {
+    public void sendSupervisorAssignments(SupervisorAssignments assignments, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       sendSupervisorAssignments_call method_call = new sendSupervisorAssignments_call(assignments, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class sendSupervisorAssignments_call extends org.apache.storm.thrift.async.TAsyncMethodCall<Void> {
+    public static class sendSupervisorAssignments_call extends org.apache.thrift.async.TAsyncMethodCall<Void> {
       private SupervisorAssignments assignments;
-      public sendSupervisorAssignments_call(SupervisorAssignments assignments, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.storm.thrift.async.TAsyncClient client, org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory, org.apache.storm.thrift.transport.TNonblockingTransport transport) throws org.apache.storm.thrift.TException {
+      public sendSupervisorAssignments_call(SupervisorAssignments assignments, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.assignments = assignments;
       }
 
-      public void write_args(org.apache.storm.thrift.protocol.TProtocol prot) throws org.apache.storm.thrift.TException {
-        prot.writeMessageBegin(new org.apache.storm.thrift.protocol.TMessage("sendSupervisorAssignments", org.apache.storm.thrift.protocol.TMessageType.CALL, 0));
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("sendSupervisorAssignments", org.apache.thrift.protocol.TMessageType.CALL, 0));
         sendSupervisorAssignments_args args = new sendSupervisorAssignments_args();
         args.set_assignments(assignments);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public Void getResult() throws AuthorizationException, org.apache.storm.thrift.TException {
-        if (getState() != org.apache.storm.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public Void getResult() throws AuthorizationException, org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new java.lang.IllegalStateException("Method call not finished!");
         }
-        org.apache.storm.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.storm.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
-        org.apache.storm.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
         return null;
       }
     }
 
-    public void getLocalAssignmentForStorm(java.lang.String id, org.apache.storm.thrift.async.AsyncMethodCallback<Assignment> resultHandler) throws org.apache.storm.thrift.TException {
+    public void getLocalAssignmentForStorm(java.lang.String id, org.apache.thrift.async.AsyncMethodCallback<Assignment> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       getLocalAssignmentForStorm_call method_call = new getLocalAssignmentForStorm_call(id, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class getLocalAssignmentForStorm_call extends org.apache.storm.thrift.async.TAsyncMethodCall<Assignment> {
+    public static class getLocalAssignmentForStorm_call extends org.apache.thrift.async.TAsyncMethodCall<Assignment> {
       private java.lang.String id;
-      public getLocalAssignmentForStorm_call(java.lang.String id, org.apache.storm.thrift.async.AsyncMethodCallback<Assignment> resultHandler, org.apache.storm.thrift.async.TAsyncClient client, org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory, org.apache.storm.thrift.transport.TNonblockingTransport transport) throws org.apache.storm.thrift.TException {
+      public getLocalAssignmentForStorm_call(java.lang.String id, org.apache.thrift.async.AsyncMethodCallback<Assignment> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.id = id;
       }
 
-      public void write_args(org.apache.storm.thrift.protocol.TProtocol prot) throws org.apache.storm.thrift.TException {
-        prot.writeMessageBegin(new org.apache.storm.thrift.protocol.TMessage("getLocalAssignmentForStorm", org.apache.storm.thrift.protocol.TMessageType.CALL, 0));
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getLocalAssignmentForStorm", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getLocalAssignmentForStorm_args args = new getLocalAssignmentForStorm_args();
         args.set_id(id);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public Assignment getResult() throws NotAliveException, AuthorizationException, org.apache.storm.thrift.TException {
-        if (getState() != org.apache.storm.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public Assignment getResult() throws NotAliveException, AuthorizationException, org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new java.lang.IllegalStateException("Method call not finished!");
         }
-        org.apache.storm.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.storm.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
-        org.apache.storm.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
         return (new Client(prot)).recv_getLocalAssignmentForStorm();
       }
     }
 
-    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.storm.thrift.TException {
+    public void sendSupervisorWorkerHeartbeat(SupervisorWorkerHeartbeat heartbeat, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       sendSupervisorWorkerHeartbeat_call method_call = new sendSupervisorWorkerHeartbeat_call(heartbeat, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class sendSupervisorWorkerHeartbeat_call extends org.apache.storm.thrift.async.TAsyncMethodCall<Void> {
+    public static class sendSupervisorWorkerHeartbeat_call extends org.apache.thrift.async.TAsyncMethodCall<Void> {
       private SupervisorWorkerHeartbeat heartbeat;
-      public sendSupervisorWorkerHeartbeat_call(SupervisorWorkerHeartbeat heartbeat, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.storm.thrift.async.TAsyncClient client, org.apache.storm.thrift.protocol.TProtocolFactory protocolFactory, org.apache.storm.thrift.transport.TNonblockingTransport transport) throws org.apache.storm.thrift.TException {
+      public sendSupervisorWorkerHeartbeat_call(SupervisorWorkerHeartbeat heartbeat, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.heartbeat = heartbeat;
       }
 
-      public void write_args(org.apache.storm.thrift.protocol.TProtocol prot) throws org.apache.storm.thrift.TException {
-        prot.writeMessageBegin(new org.apache.storm.thrift.protocol.TMessage("sendSupervisorWorkerHeartbeat", org.apache.storm.thrift.protocol.TMessageType.CALL, 0));
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("sendSupervisorWorkerHeartbeat", org.apache.thrift.protocol.TMessageType.CALL, 0));
         sendSupervisorWorkerHeartbeat_args args = new sendSupervisorWorkerHeartbeat_args();
         args.set_heartbeat(heartbeat);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public Void getResult() throws AuthorizationException, org.apache.storm.thrift.TException {
-        if (getState() != org.apache.storm.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public Void getResult() throws AuthorizationException, org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new java.lang.IllegalStateException("Method call not finished!");
         }
-        org.apache.storm.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.storm.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
-        org.apache.storm.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
         return null;
       }
     }
 
   }
 
-  public static class Processor<I extends Iface> extends org.apache.storm.thrift.TBaseProcessor<I> implements org.apache.storm.thrift.TProcessor {
+  public static class Processor<I extends Iface> extends org.apache.thrift.TBaseProcessor<I> implements org.apache.thrift.TProcessor {
     private static final org.slf4j.Logger _LOGGER = org.slf4j.LoggerFactory.getLogger(Processor.class.getName());
     public Processor(I iface) {
-      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.storm.thrift.ProcessFunction<I, ? extends org.apache.storm.thrift.TBase>>()));
+      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>>()));
     }
 
-    protected Processor(I iface, java.util.Map<java.lang.String, org.apache.storm.thrift.ProcessFunction<I, ? extends org.apache.storm.thrift.TBase>> processMap) {
+    protected Processor(I iface, java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> processMap) {
       super(iface, getProcessMap(processMap));
     }
 
-    private static <I extends Iface> java.util.Map<java.lang.String,  org.apache.storm.thrift.ProcessFunction<I, ? extends org.apache.storm.thrift.TBase>> getProcessMap(java.util.Map<java.lang.String, org.apache.storm.thrift.ProcessFunction<I, ? extends  org.apache.storm.thrift.TBase>> processMap) {
+    private static <I extends Iface> java.util.Map<java.lang.String,  org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> getProcessMap(java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
       processMap.put("sendSupervisorAssignments", new sendSupervisorAssignments());
       processMap.put("getLocalAssignmentForStorm", new getLocalAssignmentForStorm());
       processMap.put("sendSupervisorWorkerHeartbeat", new sendSupervisorWorkerHeartbeat());
       return processMap;
     }
 
-    public static class sendSupervisorAssignments<I extends Iface> extends org.apache.storm.thrift.ProcessFunction<I, sendSupervisorAssignments_args> {
+    public static class sendSupervisorAssignments<I extends Iface> extends org.apache.thrift.ProcessFunction<I, sendSupervisorAssignments_args> {
       public sendSupervisorAssignments() {
         super("sendSupervisorAssignments");
       }
@@ -308,7 +308,7 @@ public class Supervisor {
         return false;
       }
 
-      public sendSupervisorAssignments_result getResult(I iface, sendSupervisorAssignments_args args) throws org.apache.storm.thrift.TException {
+      public sendSupervisorAssignments_result getResult(I iface, sendSupervisorAssignments_args args) throws org.apache.thrift.TException {
         sendSupervisorAssignments_result result = new sendSupervisorAssignments_result();
         try {
           iface.sendSupervisorAssignments(args.assignments);
@@ -319,7 +319,7 @@ public class Supervisor {
       }
     }
 
-    public static class getLocalAssignmentForStorm<I extends Iface> extends org.apache.storm.thrift.ProcessFunction<I, getLocalAssignmentForStorm_args> {
+    public static class getLocalAssignmentForStorm<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getLocalAssignmentForStorm_args> {
       public getLocalAssignmentForStorm() {
         super("getLocalAssignmentForStorm");
       }
@@ -337,7 +337,7 @@ public class Supervisor {
         return false;
       }
 
-      public getLocalAssignmentForStorm_result getResult(I iface, getLocalAssignmentForStorm_args args) throws org.apache.storm.thrift.TException {
+      public getLocalAssignmentForStorm_result getResult(I iface, getLocalAssignmentForStorm_args args) throws org.apache.thrift.TException {
         getLocalAssignmentForStorm_result result = new getLocalAssignmentForStorm_result();
         try {
           result.success = iface.getLocalAssignmentForStorm(args.id);
@@ -350,7 +350,7 @@ public class Supervisor {
       }
     }
 
-    public static class sendSupervisorWorkerHeartbeat<I extends Iface> extends org.apache.storm.thrift.ProcessFunction<I, sendSupervisorWorkerHeartbeat_args> {
+    public static class sendSupervisorWorkerHeartbeat<I extends Iface> extends org.apache.thrift.ProcessFunction<I, sendSupervisorWorkerHeartbeat_args> {
       public sendSupervisorWorkerHeartbeat() {
         super("sendSupervisorWorkerHeartbeat");
       }
@@ -368,7 +368,7 @@ public class Supervisor {
         return false;
       }
 
-      public sendSupervisorWorkerHeartbeat_result getResult(I iface, sendSupervisorWorkerHeartbeat_args args) throws org.apache.storm.thrift.TException {
+      public sendSupervisorWorkerHeartbeat_result getResult(I iface, sendSupervisorWorkerHeartbeat_args args) throws org.apache.thrift.TException {
         sendSupervisorWorkerHeartbeat_result result = new sendSupervisorWorkerHeartbeat_result();
         try {
           iface.sendSupervisorWorkerHeartbeat(args.heartbeat);
@@ -381,24 +381,24 @@ public class Supervisor {
 
   }
 
-  public static class AsyncProcessor<I extends AsyncIface> extends org.apache.storm.thrift.TBaseAsyncProcessor<I> {
+  public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
     private static final org.slf4j.Logger _LOGGER = org.slf4j.LoggerFactory.getLogger(AsyncProcessor.class.getName());
     public AsyncProcessor(I iface) {
-      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.storm.thrift.AsyncProcessFunction<I, ? extends org.apache.storm.thrift.TBase, ?>>()));
+      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.thrift.AsyncProcessFunction<I, ? extends org.apache.thrift.TBase, ?>>()));
     }
 
-    protected AsyncProcessor(I iface, java.util.Map<java.lang.String,  org.apache.storm.thrift.AsyncProcessFunction<I, ? extends  org.apache.storm.thrift.TBase, ?>> processMap) {
+    protected AsyncProcessor(I iface, java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       super(iface, getProcessMap(processMap));
     }
 
-    private static <I extends AsyncIface> java.util.Map<java.lang.String,  org.apache.storm.thrift.AsyncProcessFunction<I, ? extends  org.apache.storm.thrift.TBase,?>> getProcessMap(java.util.Map<java.lang.String,  org.apache.storm.thrift.AsyncProcessFunction<I, ? extends  org.apache.storm.thrift.TBase, ?>> processMap) {
+    private static <I extends AsyncIface> java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase,?>> getProcessMap(java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       processMap.put("sendSupervisorAssignments", new sendSupervisorAssignments());
       processMap.put("getLocalAssignmentForStorm", new getLocalAssignmentForStorm());
       processMap.put("sendSupervisorWorkerHeartbeat", new sendSupervisorWorkerHeartbeat());
       return processMap;
     }
 
-    public static class sendSupervisorAssignments<I extends AsyncIface> extends org.apache.storm.thrift.AsyncProcessFunction<I, sendSupervisorAssignments_args, Void> {
+    public static class sendSupervisorAssignments<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, sendSupervisorAssignments_args, Void> {
       public sendSupervisorAssignments() {
         super("sendSupervisorAssignments");
       }
@@ -407,14 +407,14 @@ public class Supervisor {
         return new sendSupervisorAssignments_args();
       }
 
-      public org.apache.storm.thrift.async.AsyncMethodCallback<Void> getResultHandler(final org.apache.storm.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
-        final org.apache.storm.thrift.AsyncProcessFunction fcall = this;
-        return new org.apache.storm.thrift.async.AsyncMethodCallback<Void>() { 
+      public org.apache.thrift.async.AsyncMethodCallback<Void> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new org.apache.thrift.async.AsyncMethodCallback<Void>() {
           public void onComplete(Void o) {
             sendSupervisorAssignments_result result = new sendSupervisorAssignments_result();
             try {
-              fcall.sendResponse(fb, result, org.apache.storm.thrift.protocol.TMessageType.REPLY,seqid);
-            } catch (org.apache.storm.thrift.transport.TTransportException e) {
+              fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+            } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
             } catch (java.lang.Exception e) {
@@ -423,25 +423,25 @@ public class Supervisor {
             }
           }
           public void onError(java.lang.Exception e) {
-            byte msgType = org.apache.storm.thrift.protocol.TMessageType.REPLY;
-            org.apache.storm.thrift.TSerializable msg;
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TSerializable msg;
             sendSupervisorAssignments_result result = new sendSupervisorAssignments_result();
             if (e instanceof AuthorizationException) {
               result.aze = (AuthorizationException) e;
               result.set_aze_isSet(true);
               msg = result;
-            } else if (e instanceof org.apache.storm.thrift.transport.TTransportException) {
+            } else if (e instanceof org.apache.thrift.transport.TTransportException) {
               _LOGGER.error("TTransportException inside handler", e);
               fb.close();
               return;
-            } else if (e instanceof org.apache.storm.thrift.TApplicationException) {
+            } else if (e instanceof org.apache.thrift.TApplicationException) {
               _LOGGER.error("TApplicationException inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = (org.apache.storm.thrift.TApplicationException)e;
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TApplicationException)e;
             } else {
               _LOGGER.error("Exception inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = new org.apache.storm.thrift.TApplicationException(org.apache.storm.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
@@ -457,12 +457,12 @@ public class Supervisor {
         return false;
       }
 
-      public void start(I iface, sendSupervisorAssignments_args args, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.storm.thrift.TException {
+      public void start(I iface, sendSupervisorAssignments_args args, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
         iface.sendSupervisorAssignments(args.assignments,resultHandler);
       }
     }
 
-    public static class getLocalAssignmentForStorm<I extends AsyncIface> extends org.apache.storm.thrift.AsyncProcessFunction<I, getLocalAssignmentForStorm_args, Assignment> {
+    public static class getLocalAssignmentForStorm<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getLocalAssignmentForStorm_args, Assignment> {
       public getLocalAssignmentForStorm() {
         super("getLocalAssignmentForStorm");
       }
@@ -471,15 +471,15 @@ public class Supervisor {
         return new getLocalAssignmentForStorm_args();
       }
 
-      public org.apache.storm.thrift.async.AsyncMethodCallback<Assignment> getResultHandler(final org.apache.storm.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
-        final org.apache.storm.thrift.AsyncProcessFunction fcall = this;
-        return new org.apache.storm.thrift.async.AsyncMethodCallback<Assignment>() { 
+      public org.apache.thrift.async.AsyncMethodCallback<Assignment> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new org.apache.thrift.async.AsyncMethodCallback<Assignment>() {
           public void onComplete(Assignment o) {
             getLocalAssignmentForStorm_result result = new getLocalAssignmentForStorm_result();
             result.success = o;
             try {
-              fcall.sendResponse(fb, result, org.apache.storm.thrift.protocol.TMessageType.REPLY,seqid);
-            } catch (org.apache.storm.thrift.transport.TTransportException e) {
+              fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+            } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
             } catch (java.lang.Exception e) {
@@ -488,8 +488,8 @@ public class Supervisor {
             }
           }
           public void onError(java.lang.Exception e) {
-            byte msgType = org.apache.storm.thrift.protocol.TMessageType.REPLY;
-            org.apache.storm.thrift.TSerializable msg;
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TSerializable msg;
             getLocalAssignmentForStorm_result result = new getLocalAssignmentForStorm_result();
             if (e instanceof NotAliveException) {
               result.e = (NotAliveException) e;
@@ -499,18 +499,18 @@ public class Supervisor {
               result.aze = (AuthorizationException) e;
               result.set_aze_isSet(true);
               msg = result;
-            } else if (e instanceof org.apache.storm.thrift.transport.TTransportException) {
+            } else if (e instanceof org.apache.thrift.transport.TTransportException) {
               _LOGGER.error("TTransportException inside handler", e);
               fb.close();
               return;
-            } else if (e instanceof org.apache.storm.thrift.TApplicationException) {
+            } else if (e instanceof org.apache.thrift.TApplicationException) {
               _LOGGER.error("TApplicationException inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = (org.apache.storm.thrift.TApplicationException)e;
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TApplicationException)e;
             } else {
               _LOGGER.error("Exception inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = new org.apache.storm.thrift.TApplicationException(org.apache.storm.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
@@ -526,12 +526,12 @@ public class Supervisor {
         return false;
       }
 
-      public void start(I iface, getLocalAssignmentForStorm_args args, org.apache.storm.thrift.async.AsyncMethodCallback<Assignment> resultHandler) throws org.apache.storm.thrift.TException {
+      public void start(I iface, getLocalAssignmentForStorm_args args, org.apache.thrift.async.AsyncMethodCallback<Assignment> resultHandler) throws org.apache.thrift.TException {
         iface.getLocalAssignmentForStorm(args.id,resultHandler);
       }
     }
 
-    public static class sendSupervisorWorkerHeartbeat<I extends AsyncIface> extends org.apache.storm.thrift.AsyncProcessFunction<I, sendSupervisorWorkerHeartbeat_args, Void> {
+    public static class sendSupervisorWorkerHeartbeat<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, sendSupervisorWorkerHeartbeat_args, Void> {
       public sendSupervisorWorkerHeartbeat() {
         super("sendSupervisorWorkerHeartbeat");
       }
@@ -540,14 +540,14 @@ public class Supervisor {
         return new sendSupervisorWorkerHeartbeat_args();
       }
 
-      public org.apache.storm.thrift.async.AsyncMethodCallback<Void> getResultHandler(final org.apache.storm.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
-        final org.apache.storm.thrift.AsyncProcessFunction fcall = this;
-        return new org.apache.storm.thrift.async.AsyncMethodCallback<Void>() { 
+      public org.apache.thrift.async.AsyncMethodCallback<Void> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new org.apache.thrift.async.AsyncMethodCallback<Void>() {
           public void onComplete(Void o) {
             sendSupervisorWorkerHeartbeat_result result = new sendSupervisorWorkerHeartbeat_result();
             try {
-              fcall.sendResponse(fb, result, org.apache.storm.thrift.protocol.TMessageType.REPLY,seqid);
-            } catch (org.apache.storm.thrift.transport.TTransportException e) {
+              fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+            } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
             } catch (java.lang.Exception e) {
@@ -556,25 +556,25 @@ public class Supervisor {
             }
           }
           public void onError(java.lang.Exception e) {
-            byte msgType = org.apache.storm.thrift.protocol.TMessageType.REPLY;
-            org.apache.storm.thrift.TSerializable msg;
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TSerializable msg;
             sendSupervisorWorkerHeartbeat_result result = new sendSupervisorWorkerHeartbeat_result();
             if (e instanceof AuthorizationException) {
               result.aze = (AuthorizationException) e;
               result.set_aze_isSet(true);
               msg = result;
-            } else if (e instanceof org.apache.storm.thrift.transport.TTransportException) {
+            } else if (e instanceof org.apache.thrift.transport.TTransportException) {
               _LOGGER.error("TTransportException inside handler", e);
               fb.close();
               return;
-            } else if (e instanceof org.apache.storm.thrift.TApplicationException) {
+            } else if (e instanceof org.apache.thrift.TApplicationException) {
               _LOGGER.error("TApplicationException inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = (org.apache.storm.thrift.TApplicationException)e;
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TApplicationException)e;
             } else {
               _LOGGER.error("Exception inside handler", e);
-              msgType = org.apache.storm.thrift.protocol.TMessageType.EXCEPTION;
-              msg = new org.apache.storm.thrift.TApplicationException(org.apache.storm.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
@@ -590,25 +590,25 @@ public class Supervisor {
         return false;
       }
 
-      public void start(I iface, sendSupervisorWorkerHeartbeat_args args, org.apache.storm.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.storm.thrift.TException {
+      public void start(I iface, sendSupervisorWorkerHeartbeat_args args, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
         iface.sendSupervisorWorkerHeartbeat(args.heartbeat,resultHandler);
       }
     }
 
   }
 
-  public static class sendSupervisorAssignments_args implements org.apache.storm.thrift.TBase<sendSupervisorAssignments_args, sendSupervisorAssignments_args._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorAssignments_args>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("sendSupervisorAssignments_args");
+  public static class sendSupervisorAssignments_args implements org.apache.thrift.TBase<sendSupervisorAssignments_args, sendSupervisorAssignments_args._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorAssignments_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("sendSupervisorAssignments_args");
 
-    private static final org.apache.storm.thrift.protocol.TField ASSIGNMENTS_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("assignments", org.apache.storm.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField ASSIGNMENTS_FIELD_DESC = new org.apache.thrift.protocol.TField("assignments", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorAssignments_argsStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorAssignments_argsTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorAssignments_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorAssignments_argsTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable SupervisorAssignments assignments; // required
+    private @org.apache.thrift.annotation.Nullable SupervisorAssignments assignments; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       ASSIGNMENTS((short)1, "assignments");
 
       private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
@@ -622,7 +622,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 1: // ASSIGNMENTS
@@ -645,7 +645,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -668,13 +668,13 @@ public class Supervisor {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.ASSIGNMENTS, new org.apache.storm.thrift.meta_data.FieldMetaData("assignments", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, SupervisorAssignments.class)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.ASSIGNMENTS, new org.apache.thrift.meta_data.FieldMetaData("assignments", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, SupervisorAssignments.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorAssignments_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorAssignments_args.class, metaDataMap);
     }
 
     public sendSupervisorAssignments_args() {
@@ -705,12 +705,12 @@ public class Supervisor {
       this.assignments = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public SupervisorAssignments get_assignments() {
       return this.assignments;
     }
 
-    public void set_assignments(@org.apache.storm.thrift.annotation.Nullable SupervisorAssignments assignments) {
+    public void set_assignments(@org.apache.thrift.annotation.Nullable SupervisorAssignments assignments) {
       this.assignments = assignments;
     }
 
@@ -729,7 +729,7 @@ public class Supervisor {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case ASSIGNMENTS:
         if (value == null) {
@@ -742,7 +742,7 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case ASSIGNMENTS:
@@ -816,7 +816,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_assignments()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.assignments, other.assignments);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.assignments, other.assignments);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -824,16 +824,16 @@ public class Supervisor {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
     }
 
@@ -853,7 +853,7 @@ public class Supervisor {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
       if (assignments != null) {
@@ -863,49 +863,49 @@ public class Supervisor {
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class sendSupervisorAssignments_argsStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorAssignments_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorAssignments_argsStandardScheme getScheme() {
         return new sendSupervisorAssignments_argsStandardScheme();
       }
     }
 
-    private static class sendSupervisorAssignments_argsStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<sendSupervisorAssignments_args> {
+    private static class sendSupervisorAssignments_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<sendSupervisorAssignments_args> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, sendSupervisorAssignments_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, sendSupervisorAssignments_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 1: // ASSIGNMENTS
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.assignments = new SupervisorAssignments();
                 struct.assignments.read(iprot);
                 struct.set_assignments_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -913,7 +913,7 @@ public class Supervisor {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, sendSupervisorAssignments_args struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, sendSupervisorAssignments_args struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -928,17 +928,17 @@ public class Supervisor {
 
     }
 
-    private static class sendSupervisorAssignments_argsTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorAssignments_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorAssignments_argsTupleScheme getScheme() {
         return new sendSupervisorAssignments_argsTupleScheme();
       }
     }
 
-    private static class sendSupervisorAssignments_argsTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<sendSupervisorAssignments_args> {
+    private static class sendSupervisorAssignments_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<sendSupervisorAssignments_args> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorAssignments_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, sendSupervisorAssignments_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_assignments()) {
           optionals.set(0);
@@ -950,8 +950,8 @@ public class Supervisor {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorAssignments_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, sendSupervisorAssignments_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.assignments = new SupervisorAssignments();
@@ -961,23 +961,23 @@ public class Supervisor {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 
-  public static class sendSupervisorAssignments_result implements org.apache.storm.thrift.TBase<sendSupervisorAssignments_result, sendSupervisorAssignments_result._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorAssignments_result>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("sendSupervisorAssignments_result");
+  public static class sendSupervisorAssignments_result implements org.apache.thrift.TBase<sendSupervisorAssignments_result, sendSupervisorAssignments_result._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorAssignments_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("sendSupervisorAssignments_result");
 
-    private static final org.apache.storm.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("aze", org.apache.storm.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.thrift.protocol.TField("aze", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorAssignments_resultStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorAssignments_resultTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorAssignments_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorAssignments_resultTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable AuthorizationException aze; // required
+    private @org.apache.thrift.annotation.Nullable AuthorizationException aze; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       AZE((short)1, "aze");
 
       private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
@@ -991,7 +991,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 1: // AZE
@@ -1014,7 +1014,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -1037,13 +1037,13 @@ public class Supervisor {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.AZE, new org.apache.storm.thrift.meta_data.FieldMetaData("aze", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.AZE, new org.apache.thrift.meta_data.FieldMetaData("aze", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorAssignments_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorAssignments_result.class, metaDataMap);
     }
 
     public sendSupervisorAssignments_result() {
@@ -1074,12 +1074,12 @@ public class Supervisor {
       this.aze = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public AuthorizationException get_aze() {
       return this.aze;
     }
 
-    public void set_aze(@org.apache.storm.thrift.annotation.Nullable AuthorizationException aze) {
+    public void set_aze(@org.apache.thrift.annotation.Nullable AuthorizationException aze) {
       this.aze = aze;
     }
 
@@ -1098,7 +1098,7 @@ public class Supervisor {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case AZE:
         if (value == null) {
@@ -1111,7 +1111,7 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case AZE:
@@ -1185,7 +1185,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_aze()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.aze, other.aze);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.aze, other.aze);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -1193,16 +1193,16 @@ public class Supervisor {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
       }
 
@@ -1222,56 +1222,56 @@ public class Supervisor {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class sendSupervisorAssignments_resultStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorAssignments_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorAssignments_resultStandardScheme getScheme() {
         return new sendSupervisorAssignments_resultStandardScheme();
       }
     }
 
-    private static class sendSupervisorAssignments_resultStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<sendSupervisorAssignments_result> {
+    private static class sendSupervisorAssignments_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<sendSupervisorAssignments_result> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, sendSupervisorAssignments_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, sendSupervisorAssignments_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 1: // AZE
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.aze = new AuthorizationException();
                 struct.aze.read(iprot);
                 struct.set_aze_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -1279,7 +1279,7 @@ public class Supervisor {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, sendSupervisorAssignments_result struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, sendSupervisorAssignments_result struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1294,17 +1294,17 @@ public class Supervisor {
 
     }
 
-    private static class sendSupervisorAssignments_resultTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorAssignments_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorAssignments_resultTupleScheme getScheme() {
         return new sendSupervisorAssignments_resultTupleScheme();
       }
     }
 
-    private static class sendSupervisorAssignments_resultTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<sendSupervisorAssignments_result> {
+    private static class sendSupervisorAssignments_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<sendSupervisorAssignments_result> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorAssignments_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, sendSupervisorAssignments_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_aze()) {
           optionals.set(0);
@@ -1316,8 +1316,8 @@ public class Supervisor {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorAssignments_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, sendSupervisorAssignments_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.aze = new AuthorizationException();
@@ -1327,23 +1327,23 @@ public class Supervisor {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 
-  public static class getLocalAssignmentForStorm_args implements org.apache.storm.thrift.TBase<getLocalAssignmentForStorm_args, getLocalAssignmentForStorm_args._Fields>, java.io.Serializable, Cloneable, Comparable<getLocalAssignmentForStorm_args>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("getLocalAssignmentForStorm_args");
+  public static class getLocalAssignmentForStorm_args implements org.apache.thrift.TBase<getLocalAssignmentForStorm_args, getLocalAssignmentForStorm_args._Fields>, java.io.Serializable, Cloneable, Comparable<getLocalAssignmentForStorm_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getLocalAssignmentForStorm_args");
 
-    private static final org.apache.storm.thrift.protocol.TField ID_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("id", org.apache.storm.thrift.protocol.TType.STRING, (short)1);
+    private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)1);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getLocalAssignmentForStorm_argsStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getLocalAssignmentForStorm_argsTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getLocalAssignmentForStorm_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getLocalAssignmentForStorm_argsTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable java.lang.String id; // required
+    private @org.apache.thrift.annotation.Nullable java.lang.String id; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       ID((short)1, "id");
 
       private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
@@ -1357,7 +1357,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 1: // ID
@@ -1380,7 +1380,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -1403,13 +1403,13 @@ public class Supervisor {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.ID, new org.apache.storm.thrift.meta_data.FieldMetaData("id", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.FieldValueMetaData(org.apache.storm.thrift.protocol.TType.STRING)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getLocalAssignmentForStorm_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getLocalAssignmentForStorm_args.class, metaDataMap);
     }
 
     public getLocalAssignmentForStorm_args() {
@@ -1440,12 +1440,12 @@ public class Supervisor {
       this.id = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.String get_id() {
       return this.id;
     }
 
-    public void set_id(@org.apache.storm.thrift.annotation.Nullable java.lang.String id) {
+    public void set_id(@org.apache.thrift.annotation.Nullable java.lang.String id) {
       this.id = id;
     }
 
@@ -1464,7 +1464,7 @@ public class Supervisor {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case ID:
         if (value == null) {
@@ -1477,7 +1477,7 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case ID:
@@ -1551,7 +1551,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_id()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.id, other.id);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.id, other.id);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -1559,16 +1559,16 @@ public class Supervisor {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
     }
 
@@ -1588,55 +1588,55 @@ public class Supervisor {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class getLocalAssignmentForStorm_argsStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class getLocalAssignmentForStorm_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public getLocalAssignmentForStorm_argsStandardScheme getScheme() {
         return new getLocalAssignmentForStorm_argsStandardScheme();
       }
     }
 
-    private static class getLocalAssignmentForStorm_argsStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<getLocalAssignmentForStorm_args> {
+    private static class getLocalAssignmentForStorm_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<getLocalAssignmentForStorm_args> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, getLocalAssignmentForStorm_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getLocalAssignmentForStorm_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 1: // ID
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRING) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
                 struct.id = iprot.readString();
                 struct.set_id_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -1644,7 +1644,7 @@ public class Supervisor {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, getLocalAssignmentForStorm_args struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getLocalAssignmentForStorm_args struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1659,17 +1659,17 @@ public class Supervisor {
 
     }
 
-    private static class getLocalAssignmentForStorm_argsTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class getLocalAssignmentForStorm_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public getLocalAssignmentForStorm_argsTupleScheme getScheme() {
         return new getLocalAssignmentForStorm_argsTupleScheme();
       }
     }
 
-    private static class getLocalAssignmentForStorm_argsTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<getLocalAssignmentForStorm_args> {
+    private static class getLocalAssignmentForStorm_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<getLocalAssignmentForStorm_args> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_id()) {
           optionals.set(0);
@@ -1681,8 +1681,8 @@ public class Supervisor {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.id = iprot.readString();
@@ -1691,27 +1691,27 @@ public class Supervisor {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 
-  public static class getLocalAssignmentForStorm_result implements org.apache.storm.thrift.TBase<getLocalAssignmentForStorm_result, getLocalAssignmentForStorm_result._Fields>, java.io.Serializable, Cloneable, Comparable<getLocalAssignmentForStorm_result>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("getLocalAssignmentForStorm_result");
+  public static class getLocalAssignmentForStorm_result implements org.apache.thrift.TBase<getLocalAssignmentForStorm_result, getLocalAssignmentForStorm_result._Fields>, java.io.Serializable, Cloneable, Comparable<getLocalAssignmentForStorm_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getLocalAssignmentForStorm_result");
 
-    private static final org.apache.storm.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("success", org.apache.storm.thrift.protocol.TType.STRUCT, (short)0);
-    private static final org.apache.storm.thrift.protocol.TField E_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("e", org.apache.storm.thrift.protocol.TType.STRUCT, (short)1);
-    private static final org.apache.storm.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("aze", org.apache.storm.thrift.protocol.TType.STRUCT, (short)2);
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.STRUCT, (short)0);
+    private static final org.apache.thrift.protocol.TField E_FIELD_DESC = new org.apache.thrift.protocol.TField("e", org.apache.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.thrift.protocol.TField("aze", org.apache.thrift.protocol.TType.STRUCT, (short)2);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getLocalAssignmentForStorm_resultStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getLocalAssignmentForStorm_resultTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getLocalAssignmentForStorm_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getLocalAssignmentForStorm_resultTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable Assignment success; // required
-    private @org.apache.storm.thrift.annotation.Nullable NotAliveException e; // required
-    private @org.apache.storm.thrift.annotation.Nullable AuthorizationException aze; // required
+    private @org.apache.thrift.annotation.Nullable Assignment success; // required
+    private @org.apache.thrift.annotation.Nullable NotAliveException e; // required
+    private @org.apache.thrift.annotation.Nullable AuthorizationException aze; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       SUCCESS((short)0, "success"),
       E((short)1, "e"),
       AZE((short)2, "aze");
@@ -1727,7 +1727,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 0: // SUCCESS
@@ -1754,7 +1754,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -1777,17 +1777,17 @@ public class Supervisor {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.SUCCESS, new org.apache.storm.thrift.meta_data.FieldMetaData("success", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, Assignment.class)));
-      tmpMap.put(_Fields.E, new org.apache.storm.thrift.meta_data.FieldMetaData("e", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, NotAliveException.class)));
-      tmpMap.put(_Fields.AZE, new org.apache.storm.thrift.meta_data.FieldMetaData("aze", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Assignment.class)));
+      tmpMap.put(_Fields.E, new org.apache.thrift.meta_data.FieldMetaData("e", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, NotAliveException.class)));
+      tmpMap.put(_Fields.AZE, new org.apache.thrift.meta_data.FieldMetaData("aze", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getLocalAssignmentForStorm_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getLocalAssignmentForStorm_result.class, metaDataMap);
     }
 
     public getLocalAssignmentForStorm_result() {
@@ -1830,12 +1830,12 @@ public class Supervisor {
       this.aze = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public Assignment get_success() {
       return this.success;
     }
 
-    public void set_success(@org.apache.storm.thrift.annotation.Nullable Assignment success) {
+    public void set_success(@org.apache.thrift.annotation.Nullable Assignment success) {
       this.success = success;
     }
 
@@ -1854,12 +1854,12 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public NotAliveException get_e() {
       return this.e;
     }
 
-    public void set_e(@org.apache.storm.thrift.annotation.Nullable NotAliveException e) {
+    public void set_e(@org.apache.thrift.annotation.Nullable NotAliveException e) {
       this.e = e;
     }
 
@@ -1878,12 +1878,12 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public AuthorizationException get_aze() {
       return this.aze;
     }
 
-    public void set_aze(@org.apache.storm.thrift.annotation.Nullable AuthorizationException aze) {
+    public void set_aze(@org.apache.thrift.annotation.Nullable AuthorizationException aze) {
       this.aze = aze;
     }
 
@@ -1902,7 +1902,7 @@ public class Supervisor {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case SUCCESS:
         if (value == null) {
@@ -1931,7 +1931,7 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case SUCCESS:
@@ -2041,7 +2041,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_success()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.success, other.success);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -2051,7 +2051,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_e()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.e, other.e);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.e, other.e);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -2061,7 +2061,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_aze()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.aze, other.aze);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.aze, other.aze);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -2069,16 +2069,16 @@ public class Supervisor {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
       }
 
@@ -2114,7 +2114,7 @@ public class Supervisor {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
       if (success != null) {
@@ -2124,67 +2124,67 @@ public class Supervisor {
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class getLocalAssignmentForStorm_resultStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class getLocalAssignmentForStorm_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public getLocalAssignmentForStorm_resultStandardScheme getScheme() {
         return new getLocalAssignmentForStorm_resultStandardScheme();
       }
     }
 
-    private static class getLocalAssignmentForStorm_resultStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<getLocalAssignmentForStorm_result> {
+    private static class getLocalAssignmentForStorm_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<getLocalAssignmentForStorm_result> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, getLocalAssignmentForStorm_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getLocalAssignmentForStorm_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 0: // SUCCESS
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.success = new Assignment();
                 struct.success.read(iprot);
                 struct.set_success_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             case 1: // E
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.e = new NotAliveException();
                 struct.e.read(iprot);
                 struct.set_e_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             case 2: // AZE
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.aze = new AuthorizationException();
                 struct.aze.read(iprot);
                 struct.set_aze_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -2192,7 +2192,7 @@ public class Supervisor {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, getLocalAssignmentForStorm_result struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getLocalAssignmentForStorm_result struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2217,17 +2217,17 @@ public class Supervisor {
 
     }
 
-    private static class getLocalAssignmentForStorm_resultTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class getLocalAssignmentForStorm_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public getLocalAssignmentForStorm_resultTupleScheme getScheme() {
         return new getLocalAssignmentForStorm_resultTupleScheme();
       }
     }
 
-    private static class getLocalAssignmentForStorm_resultTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<getLocalAssignmentForStorm_result> {
+    private static class getLocalAssignmentForStorm_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<getLocalAssignmentForStorm_result> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_success()) {
           optionals.set(0);
@@ -2251,8 +2251,8 @@ public class Supervisor {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, getLocalAssignmentForStorm_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(3);
         if (incoming.get(0)) {
           struct.success = new Assignment();
@@ -2272,23 +2272,23 @@ public class Supervisor {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 
-  public static class sendSupervisorWorkerHeartbeat_args implements org.apache.storm.thrift.TBase<sendSupervisorWorkerHeartbeat_args, sendSupervisorWorkerHeartbeat_args._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorWorkerHeartbeat_args>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("sendSupervisorWorkerHeartbeat_args");
+  public static class sendSupervisorWorkerHeartbeat_args implements org.apache.thrift.TBase<sendSupervisorWorkerHeartbeat_args, sendSupervisorWorkerHeartbeat_args._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorWorkerHeartbeat_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("sendSupervisorWorkerHeartbeat_args");
 
-    private static final org.apache.storm.thrift.protocol.TField HEARTBEAT_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("heartbeat", org.apache.storm.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField HEARTBEAT_FIELD_DESC = new org.apache.thrift.protocol.TField("heartbeat", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_argsStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_argsTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_argsTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable SupervisorWorkerHeartbeat heartbeat; // required
+    private @org.apache.thrift.annotation.Nullable SupervisorWorkerHeartbeat heartbeat; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       HEARTBEAT((short)1, "heartbeat");
 
       private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
@@ -2302,7 +2302,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 1: // HEARTBEAT
@@ -2325,7 +2325,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -2348,13 +2348,13 @@ public class Supervisor {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.HEARTBEAT, new org.apache.storm.thrift.meta_data.FieldMetaData("heartbeat", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, SupervisorWorkerHeartbeat.class)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.HEARTBEAT, new org.apache.thrift.meta_data.FieldMetaData("heartbeat", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, SupervisorWorkerHeartbeat.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorWorkerHeartbeat_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorWorkerHeartbeat_args.class, metaDataMap);
     }
 
     public sendSupervisorWorkerHeartbeat_args() {
@@ -2385,12 +2385,12 @@ public class Supervisor {
       this.heartbeat = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public SupervisorWorkerHeartbeat get_heartbeat() {
       return this.heartbeat;
     }
 
-    public void set_heartbeat(@org.apache.storm.thrift.annotation.Nullable SupervisorWorkerHeartbeat heartbeat) {
+    public void set_heartbeat(@org.apache.thrift.annotation.Nullable SupervisorWorkerHeartbeat heartbeat) {
       this.heartbeat = heartbeat;
     }
 
@@ -2409,7 +2409,7 @@ public class Supervisor {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case HEARTBEAT:
         if (value == null) {
@@ -2422,7 +2422,7 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case HEARTBEAT:
@@ -2496,7 +2496,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_heartbeat()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.heartbeat, other.heartbeat);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.heartbeat, other.heartbeat);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -2504,16 +2504,16 @@ public class Supervisor {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
     }
 
@@ -2533,7 +2533,7 @@ public class Supervisor {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
       if (heartbeat != null) {
@@ -2543,49 +2543,49 @@ public class Supervisor {
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class sendSupervisorWorkerHeartbeat_argsStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorWorkerHeartbeat_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorWorkerHeartbeat_argsStandardScheme getScheme() {
         return new sendSupervisorWorkerHeartbeat_argsStandardScheme();
       }
     }
 
-    private static class sendSupervisorWorkerHeartbeat_argsStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<sendSupervisorWorkerHeartbeat_args> {
+    private static class sendSupervisorWorkerHeartbeat_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<sendSupervisorWorkerHeartbeat_args> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 1: // HEARTBEAT
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.heartbeat = new SupervisorWorkerHeartbeat();
                 struct.heartbeat.read(iprot);
                 struct.set_heartbeat_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -2593,7 +2593,7 @@ public class Supervisor {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2608,17 +2608,17 @@ public class Supervisor {
 
     }
 
-    private static class sendSupervisorWorkerHeartbeat_argsTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorWorkerHeartbeat_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorWorkerHeartbeat_argsTupleScheme getScheme() {
         return new sendSupervisorWorkerHeartbeat_argsTupleScheme();
       }
     }
 
-    private static class sendSupervisorWorkerHeartbeat_argsTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<sendSupervisorWorkerHeartbeat_args> {
+    private static class sendSupervisorWorkerHeartbeat_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<sendSupervisorWorkerHeartbeat_args> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_heartbeat()) {
           optionals.set(0);
@@ -2630,8 +2630,8 @@ public class Supervisor {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.heartbeat = new SupervisorWorkerHeartbeat();
@@ -2641,23 +2641,23 @@ public class Supervisor {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 
-  public static class sendSupervisorWorkerHeartbeat_result implements org.apache.storm.thrift.TBase<sendSupervisorWorkerHeartbeat_result, sendSupervisorWorkerHeartbeat_result._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorWorkerHeartbeat_result>   {
-    private static final org.apache.storm.thrift.protocol.TStruct STRUCT_DESC = new org.apache.storm.thrift.protocol.TStruct("sendSupervisorWorkerHeartbeat_result");
+  public static class sendSupervisorWorkerHeartbeat_result implements org.apache.thrift.TBase<sendSupervisorWorkerHeartbeat_result, sendSupervisorWorkerHeartbeat_result._Fields>, java.io.Serializable, Cloneable, Comparable<sendSupervisorWorkerHeartbeat_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("sendSupervisorWorkerHeartbeat_result");
 
-    private static final org.apache.storm.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.storm.thrift.protocol.TField("aze", org.apache.storm.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField AZE_FIELD_DESC = new org.apache.thrift.protocol.TField("aze", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
-    private static final org.apache.storm.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_resultStandardSchemeFactory();
-    private static final org.apache.storm.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_resultTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sendSupervisorWorkerHeartbeat_resultTupleSchemeFactory();
 
-    private @org.apache.storm.thrift.annotation.Nullable AuthorizationException aze; // required
+    private @org.apache.thrift.annotation.Nullable AuthorizationException aze; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
-    public enum _Fields implements org.apache.storm.thrift.TFieldIdEnum {
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       AZE((short)1, "aze");
 
       private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
@@ -2671,7 +2671,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches fieldId, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
           case 1: // AZE
@@ -2694,7 +2694,7 @@ public class Supervisor {
       /**
        * Find the _Fields constant that matches name, or null if its not found.
        */
-      @org.apache.storm.thrift.annotation.Nullable
+      @org.apache.thrift.annotation.Nullable
       public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
@@ -2717,13 +2717,13 @@ public class Supervisor {
     }
 
     // isset id assignments
-    public static final java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> metaDataMap;
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
-      java.util.Map<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.storm.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.AZE, new org.apache.storm.thrift.meta_data.FieldMetaData("aze", org.apache.storm.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.storm.thrift.meta_data.StructMetaData(org.apache.storm.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.AZE, new org.apache.thrift.meta_data.FieldMetaData("aze", org.apache.thrift.TFieldRequirementType.DEFAULT,
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, AuthorizationException.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.storm.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorWorkerHeartbeat_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sendSupervisorWorkerHeartbeat_result.class, metaDataMap);
     }
 
     public sendSupervisorWorkerHeartbeat_result() {
@@ -2754,12 +2754,12 @@ public class Supervisor {
       this.aze = null;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public AuthorizationException get_aze() {
       return this.aze;
     }
 
-    public void set_aze(@org.apache.storm.thrift.annotation.Nullable AuthorizationException aze) {
+    public void set_aze(@org.apache.thrift.annotation.Nullable AuthorizationException aze) {
       this.aze = aze;
     }
 
@@ -2778,7 +2778,7 @@ public class Supervisor {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.storm.thrift.annotation.Nullable java.lang.Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case AZE:
         if (value == null) {
@@ -2791,7 +2791,7 @@ public class Supervisor {
       }
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case AZE:
@@ -2865,7 +2865,7 @@ public class Supervisor {
         return lastComparison;
       }
       if (is_set_aze()) {
-        lastComparison = org.apache.storm.thrift.TBaseHelper.compareTo(this.aze, other.aze);
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.aze, other.aze);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -2873,16 +2873,16 @@ public class Supervisor {
       return 0;
     }
 
-    @org.apache.storm.thrift.annotation.Nullable
+    @org.apache.thrift.annotation.Nullable
     public _Fields fieldForId(int fieldId) {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.storm.thrift.protocol.TProtocol iprot) throws org.apache.storm.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
       scheme(iprot).read(iprot, this);
     }
 
-    public void write(org.apache.storm.thrift.protocol.TProtocol oprot) throws org.apache.storm.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
       scheme(oprot).write(oprot, this);
       }
 
@@ -2902,56 +2902,56 @@ public class Supervisor {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.storm.thrift.TException {
+    public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
-        write(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.storm.thrift.TException te) {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
-        read(new org.apache.storm.thrift.protocol.TCompactProtocol(new org.apache.storm.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.storm.thrift.TException te) {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
         throw new java.io.IOException(te);
       }
     }
 
-    private static class sendSupervisorWorkerHeartbeat_resultStandardSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorWorkerHeartbeat_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorWorkerHeartbeat_resultStandardScheme getScheme() {
         return new sendSupervisorWorkerHeartbeat_resultStandardScheme();
       }
     }
 
-    private static class sendSupervisorWorkerHeartbeat_resultStandardScheme extends org.apache.storm.thrift.scheme.StandardScheme<sendSupervisorWorkerHeartbeat_result> {
+    private static class sendSupervisorWorkerHeartbeat_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<sendSupervisorWorkerHeartbeat_result> {
 
-      public void read(org.apache.storm.thrift.protocol.TProtocol iprot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TField schemeField;
+      public void read(org.apache.thrift.protocol.TProtocol iprot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
         {
           schemeField = iprot.readFieldBegin();
-          if (schemeField.type == org.apache.storm.thrift.protocol.TType.STOP) { 
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
             break;
           }
           switch (schemeField.id) {
             case 1: // AZE
-              if (schemeField.type == org.apache.storm.thrift.protocol.TType.STRUCT) {
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
                 struct.aze = new AuthorizationException();
                 struct.aze.read(iprot);
                 struct.set_aze_isSet(true);
               } else { 
-                org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
             default:
-              org.apache.storm.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
           iprot.readFieldEnd();
         }
@@ -2959,7 +2959,7 @@ public class Supervisor {
         struct.validate();
       }
 
-      public void write(org.apache.storm.thrift.protocol.TProtocol oprot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.storm.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2974,17 +2974,17 @@ public class Supervisor {
 
     }
 
-    private static class sendSupervisorWorkerHeartbeat_resultTupleSchemeFactory implements org.apache.storm.thrift.scheme.SchemeFactory {
+    private static class sendSupervisorWorkerHeartbeat_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
       public sendSupervisorWorkerHeartbeat_resultTupleScheme getScheme() {
         return new sendSupervisorWorkerHeartbeat_resultTupleScheme();
       }
     }
 
-    private static class sendSupervisorWorkerHeartbeat_resultTupleScheme extends org.apache.storm.thrift.scheme.TupleScheme<sendSupervisorWorkerHeartbeat_result> {
+    private static class sendSupervisorWorkerHeartbeat_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<sendSupervisorWorkerHeartbeat_result> {
 
       @Override
-      public void write(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol oprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void write(org.apache.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.is_set_aze()) {
           optionals.set(0);
@@ -2996,8 +2996,8 @@ public class Supervisor {
       }
 
       @Override
-      public void read(org.apache.storm.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.storm.thrift.TException {
-        org.apache.storm.thrift.protocol.TTupleProtocol iprot = (org.apache.storm.thrift.protocol.TTupleProtocol) prot;
+      public void read(org.apache.thrift.protocol.TProtocol prot, sendSupervisorWorkerHeartbeat_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.aze = new AuthorizationException();
@@ -3007,8 +3007,8 @@ public class Supervisor {
       }
     }
 
-    private static <S extends org.apache.storm.thrift.scheme.IScheme> S scheme(org.apache.storm.thrift.protocol.TProtocol proto) {
-      return (org.apache.storm.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
     }
   }
 

@@ -15,7 +15,7 @@ package org.apache.storm.streams.processors;
 import static org.apache.storm.streams.WindowNode.PUNCTUATION;
 
 import java.util.Set;
-import org.apache.storm.shade.com.google.common.collect.Multimap;
+import com.google.common.collect.Multimap;
 import org.apache.storm.streams.ProcessorNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

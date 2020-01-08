@@ -27,8 +27,8 @@ import java.util.Map;
 import org.apache.storm.Config;
 import org.apache.storm.command.AdminCommands;
 import org.apache.storm.command.CLI;
-import org.apache.storm.shade.org.apache.zookeeper.data.ACL;
-import org.apache.storm.shade.org.apache.zookeeper.data.Stat;
+import org.apache.zookeeper.data.ACL;
+import org.apache.zookeeper.data.Stat;
 import org.apache.storm.utils.ObjectReader;
 
 public class ZkCli implements AdminCommands.AdminCommand {

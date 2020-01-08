@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.storm.messaging.TaskMessage;
 import org.apache.storm.serialization.KryoValuesDeserializer;
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
-import org.apache.storm.shade.io.netty.channel.ChannelHandlerContext;
-import org.apache.storm.shade.io.netty.handler.codec.ByteToMessageDecoder;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.ByteToMessageDecoder;
 
 public class MessageDecoder extends ByteToMessageDecoder {
 

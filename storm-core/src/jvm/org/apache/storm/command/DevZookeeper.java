@@ -15,7 +15,7 @@ package org.apache.storm.command;
 import java.util.Map;
 import org.apache.storm.Config;
 import org.apache.storm.DaemonConfig;
-import org.apache.storm.shade.uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J;
+import uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.ObjectReader;
 import org.apache.storm.utils.Utils;

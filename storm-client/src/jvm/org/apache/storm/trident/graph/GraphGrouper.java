@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import org.apache.storm.shade.org.jgrapht.DirectedGraph;
+import org.jgrapht.DirectedGraph;
 import org.apache.storm.trident.planner.Node;
 import org.apache.storm.trident.util.IndexedEdge;
 

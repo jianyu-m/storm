@@ -13,7 +13,7 @@
 package org.apache.storm.streams;
 
 import java.io.Serializable;
-import org.apache.storm.shade.org.jgrapht.EdgeFactory;
+import org.jgrapht.EdgeFactory;
 
 class StreamsEdgeFactory implements EdgeFactory<Node, Edge>, Serializable {
     @Override

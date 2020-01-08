@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.xml.bind.DatatypeConverter;
 import org.apache.storm.metricstore.AggLevel;
-import org.apache.storm.shade.com.google.common.primitives.UnsignedBytes;
+import com.google.common.primitives.UnsignedBytes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-import org.apache.storm.shade.com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap;
 import org.apache.storm.windowing.EvictionPolicy.Action;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

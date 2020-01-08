@@ -54,7 +54,7 @@ import org.apache.storm.generated.TopologyStats;
 import org.apache.storm.generated.WorkerResources;
 import org.apache.storm.generated.WorkerSummary;
 import org.apache.storm.scheduler.WorkerSlot;
-import org.apache.storm.shade.com.google.common.collect.Lists;
+import com.google.common.collect.Lists;
 import org.apache.storm.utils.Time;
 import org.apache.storm.utils.Utils;
 import org.slf4j.Logger;

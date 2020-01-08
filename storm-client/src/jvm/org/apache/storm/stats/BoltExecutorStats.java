@@ -19,7 +19,7 @@ import org.apache.storm.generated.ExecutorSpecificStats;
 import org.apache.storm.generated.ExecutorStats;
 import org.apache.storm.metric.internal.MultiCountStatAndMetric;
 import org.apache.storm.metric.internal.MultiLatencyStatAndMetric;
-import org.apache.storm.shade.com.google.common.collect.Lists;
+import com.google.common.collect.Lists;
 
 @SuppressWarnings("unchecked")
 public class BoltExecutorStats extends CommonStats {

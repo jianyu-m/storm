@@ -30,10 +30,10 @@ import org.apache.storm.metric.internal.RateTracker;
 import org.apache.storm.metrics2.JcMetrics;
 import org.apache.storm.metrics2.StormMetricRegistry;
 import org.apache.storm.policy.IWaitStrategy;
-import org.apache.storm.shade.com.google.common.util.concurrent.ThreadFactoryBuilder;
-import org.apache.storm.shade.org.jctools.queues.MessagePassingQueue;
-import org.apache.storm.shade.org.jctools.queues.MpscArrayQueue;
-import org.apache.storm.shade.org.jctools.queues.MpscUnboundedArrayQueue;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import org.jctools.queues.MessagePassingQueue;
+import org.jctools.queues.MpscArrayQueue;
+import org.jctools.queues.MpscUnboundedArrayQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

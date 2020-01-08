@@ -17,9 +17,9 @@ import java.io.IOException;
 import java.util.Map;
 import javax.security.auth.login.Configuration;
 import org.apache.storm.security.auth.sasl.SaslTransportPlugin;
-import org.apache.storm.thrift.TProcessor;
-import org.apache.storm.thrift.server.TServer;
-import org.apache.storm.thrift.transport.TTransportException;
+import org.apache.thrift.TProcessor;
+import org.apache.thrift.server.TServer;
+import org.apache.thrift.transport.TTransportException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -12,7 +12,7 @@
 
 package org.apache.storm.testing;
 
-import org.apache.storm.shade.org.apache.zookeeper.server.NIOServerCnxnFactory;
+import org.apache.zookeeper.server.NIOServerCnxnFactory;
 import org.apache.storm.zookeeper.Zookeeper;
 
 /**

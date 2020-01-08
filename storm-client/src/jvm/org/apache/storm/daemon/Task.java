@@ -23,7 +23,7 @@ import java.util.Queue;
 import java.util.Random;
 import java.util.function.BooleanSupplier;
 import org.apache.storm.Config;
-import org.apache.storm.Thrift;
+import org.apache.thrift;
 import org.apache.storm.daemon.worker.WorkerState;
 import org.apache.storm.executor.Executor;
 import org.apache.storm.executor.ExecutorTransfer;

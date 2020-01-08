@@ -32,7 +32,7 @@ import org.apache.storm.generated.Nimbus;
 import org.apache.storm.generated.TopologyInfo;
 import org.apache.storm.generated.TopologySummary;
 import org.apache.storm.st.utils.AssertUtil;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.NimbusClient;
 import org.apache.storm.utils.Utils;
 import org.slf4j.Logger;

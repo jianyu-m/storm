@@ -27,7 +27,7 @@ import org.apache.storm.st.utils.StringDecorator;
 import org.apache.storm.st.utils.TimeUtil;
 import org.apache.storm.st.wrapper.DecoratedLogLine;
 import org.apache.storm.st.wrapper.TopoWrap;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.junit.jupiter.api.Assertions;

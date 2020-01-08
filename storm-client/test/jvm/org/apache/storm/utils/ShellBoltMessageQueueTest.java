@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import junit.framework.TestCase;
 import org.apache.storm.multilang.BoltMsg;
-import org.apache.storm.shade.com.google.common.collect.Lists;
+import com.google.common.collect.Lists;
 import org.junit.Test;
 
 public class ShellBoltMessageQueueTest extends TestCase {

@@ -36,7 +36,7 @@ import org.apache.storm.policy.IWaitStrategy;
 import org.apache.storm.policy.IWaitStrategy.WaitSituation;
 import org.apache.storm.policy.WaitStrategyPark;
 import org.apache.storm.security.auth.IAutoCredentials;
-import org.apache.storm.shade.com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap;
 import org.apache.storm.stats.BoltExecutorStats;
 import org.apache.storm.stats.ClientStatsUtil;
 import org.apache.storm.task.IBolt;

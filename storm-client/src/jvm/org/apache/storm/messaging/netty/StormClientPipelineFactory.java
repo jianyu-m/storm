@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.storm.Config;
 import org.apache.storm.serialization.KryoValuesDeserializer;
-import org.apache.storm.shade.io.netty.channel.Channel;
-import org.apache.storm.shade.io.netty.channel.ChannelInitializer;
-import org.apache.storm.shade.io.netty.channel.ChannelPipeline;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 
 class StormClientPipelineFactory extends ChannelInitializer<Channel> {
     private final Client client;

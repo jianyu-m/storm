@@ -12,10 +12,10 @@
 
 package org.apache.storm.messaging.netty;
 
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
-import org.apache.storm.shade.io.netty.channel.ChannelHandler;
-import org.apache.storm.shade.io.netty.channel.ChannelHandlerContext;
-import org.apache.storm.shade.io.netty.handler.codec.MessageToByteEncoder;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToByteEncoder;
 
 @ChannelHandler.Sharable
 public class NettySerializableMessageEncoder extends MessageToByteEncoder<INettySerializable> {

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.storm.generated.GlobalStreamId;
-import org.apache.storm.shade.com.google.common.collect.Maps;
+import com.google.common.collect.Maps;
 import org.apache.storm.task.WorkerTopologyContext;
 import org.apache.storm.tuple.Fields;
 

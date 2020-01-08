@@ -45,7 +45,7 @@ import org.apache.storm.localizer.LocallyCachedBlob;
 import org.apache.storm.metric.StormMetricsRegistry;
 import org.apache.storm.metricstore.WorkerMetricsProcessor;
 import org.apache.storm.scheduler.ISupervisor;
-import org.apache.storm.shade.com.google.common.annotations.VisibleForTesting;
+import com.google.common.annotations.VisibleForTesting;
 import org.apache.storm.utils.EnumUtil;
 import org.apache.storm.utils.LocalState;
 import org.apache.storm.utils.ObjectReader;

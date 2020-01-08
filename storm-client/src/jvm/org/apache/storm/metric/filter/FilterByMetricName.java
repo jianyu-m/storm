@@ -17,10 +17,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 import org.apache.storm.metric.api.IMetricsConsumer;
-import org.apache.storm.shade.com.google.common.cache.Cache;
-import org.apache.storm.shade.com.google.common.cache.CacheBuilder;
-import org.apache.storm.shade.com.google.common.collect.Iterators;
-import org.apache.storm.shade.com.google.common.collect.Lists;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 
 public class FilterByMetricName implements MetricsFilter {
     private final Cache<String, Boolean> filterCache;

@@ -78,7 +78,7 @@ import org.apache.storm.nimbus.NimbusInfo;
 import org.apache.storm.scheduler.resource.ResourceUtils;
 import org.apache.storm.scheduler.resource.normalization.NormalizedResourceRequest;
 import org.apache.storm.security.auth.SingleUserPrincipal;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

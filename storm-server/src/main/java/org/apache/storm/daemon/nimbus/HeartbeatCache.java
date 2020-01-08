@@ -30,7 +30,7 @@ import java.util.function.Function;
 import org.apache.storm.generated.Assignment;
 import org.apache.storm.generated.ExecutorInfo;
 import org.apache.storm.generated.SupervisorWorkerHeartbeat;
-import org.apache.storm.shade.com.google.common.annotations.VisibleForTesting;
+import com.google.common.annotations.VisibleForTesting;
 import org.apache.storm.stats.ClientStatsUtil;
 import org.apache.storm.stats.StatsUtil;
 import org.apache.storm.utils.Time;

@@ -13,7 +13,7 @@ package org.apache.storm.metricstore;
 
 import java.util.Map;
 import org.apache.storm.generated.WorkerMetrics;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.NimbusClient;
 import org.apache.storm.utils.NimbusLeaderNotFoundException;
 

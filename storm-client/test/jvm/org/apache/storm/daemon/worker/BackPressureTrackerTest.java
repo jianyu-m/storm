@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Collections;
 import org.apache.storm.messaging.netty.BackPressureStatus;
-import org.apache.storm.shade.org.apache.curator.shaded.com.google.common.collect.ImmutableMap;
+import org.apache.curator.shaded.com.google.common.collect.ImmutableMap;
 import org.apache.storm.utils.JCQueue;
 import org.junit.Test;
 

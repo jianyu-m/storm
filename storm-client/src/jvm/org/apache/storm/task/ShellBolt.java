@@ -40,7 +40,7 @@ import org.apache.storm.metric.api.IMetric;
 import org.apache.storm.metric.api.rpc.IShellMetric;
 import org.apache.storm.multilang.BoltMsg;
 import org.apache.storm.multilang.ShellMsg;
-import org.apache.storm.shade.com.google.common.util.concurrent.MoreExecutors;
+import com.google.common.util.concurrent.MoreExecutors;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.ObjectReader;

@@ -41,7 +41,7 @@ import org.apache.storm.daemon.ui.resources.StormApiResource;
 import org.apache.storm.generated.AuthorizationException;
 import org.apache.storm.security.auth.IAuthorizer;
 import org.apache.storm.security.auth.ReqContext;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.NimbusClient;
 import org.apache.storm.utils.Utils;
 import org.json.simple.JSONValue;

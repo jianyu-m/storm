@@ -60,7 +60,7 @@ import org.apache.storm.st.topology.window.data.FromJson;
 import org.apache.storm.st.utils.AssertUtil;
 import org.apache.storm.st.utils.StringDecorator;
 import org.apache.storm.st.utils.TimeUtil;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

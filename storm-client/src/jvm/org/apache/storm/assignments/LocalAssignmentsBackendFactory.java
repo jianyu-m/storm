@@ -14,7 +14,7 @@ package org.apache.storm.assignments;
 
 import java.util.Map;
 import org.apache.storm.Config;
-import org.apache.storm.shade.com.google.common.base.Preconditions;
+import com.google.common.base.Preconditions;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.ReflectionUtils;
 

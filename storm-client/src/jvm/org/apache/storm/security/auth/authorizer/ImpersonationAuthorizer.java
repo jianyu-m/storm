@@ -25,7 +25,7 @@ import org.apache.storm.security.auth.IAuthorizer;
 import org.apache.storm.security.auth.IGroupMappingServiceProvider;
 import org.apache.storm.security.auth.IPrincipalToLocal;
 import org.apache.storm.security.auth.ReqContext;
-import org.apache.storm.shade.com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

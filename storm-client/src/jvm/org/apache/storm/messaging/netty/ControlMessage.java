@@ -12,8 +12,8 @@
 
 package org.apache.storm.messaging.netty;
 
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
-import org.apache.storm.shade.io.netty.buffer.Unpooled;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 
 public enum ControlMessage implements INettySerializable {
     CLOSE_MESSAGE((short) -100),

@@ -23,9 +23,9 @@ import org.apache.storm.messaging.netty.KerberosSaslServerHandler;
 import org.apache.storm.messaging.netty.SaslStormServerHandler;
 import org.apache.storm.messaging.netty.StormServerHandler;
 import org.apache.storm.security.auth.ClientAuthUtils;
-import org.apache.storm.shade.io.netty.channel.Channel;
-import org.apache.storm.shade.io.netty.channel.ChannelInitializer;
-import org.apache.storm.shade.io.netty.channel.ChannelPipeline;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

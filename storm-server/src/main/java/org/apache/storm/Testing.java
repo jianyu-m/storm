@@ -43,7 +43,7 @@ import org.apache.storm.testing.MockedSources;
 import org.apache.storm.testing.TestJob;
 import org.apache.storm.testing.TrackedTopology;
 import org.apache.storm.testing.TupleCaptureBolt;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.TupleImpl;

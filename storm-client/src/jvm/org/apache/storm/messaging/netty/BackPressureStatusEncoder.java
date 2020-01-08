@@ -18,8 +18,8 @@ package org.apache.storm.messaging.netty;
 
 import java.util.List;
 import org.apache.storm.serialization.KryoValuesSerializer;
-import org.apache.storm.shade.io.netty.channel.ChannelHandlerContext;
-import org.apache.storm.shade.io.netty.handler.codec.MessageToMessageEncoder;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToMessageEncoder;
 
 public class BackPressureStatusEncoder extends MessageToMessageEncoder<BackPressureStatus> {
 

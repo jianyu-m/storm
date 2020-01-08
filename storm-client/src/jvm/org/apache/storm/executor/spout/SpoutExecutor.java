@@ -34,7 +34,7 @@ import org.apache.storm.hooks.info.SpoutAckInfo;
 import org.apache.storm.hooks.info.SpoutFailInfo;
 import org.apache.storm.policy.IWaitStrategy;
 import org.apache.storm.policy.IWaitStrategy.WaitSituation;
-import org.apache.storm.shade.com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap;
 import org.apache.storm.spout.ISpout;
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.stats.ClientStatsUtil;

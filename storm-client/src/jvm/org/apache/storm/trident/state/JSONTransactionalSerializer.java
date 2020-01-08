@@ -15,8 +15,8 @@ package org.apache.storm.trident.state;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.storm.shade.org.json.simple.JSONValue;
-import org.apache.storm.shade.org.json.simple.parser.ParseException;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.ParseException;
 
 @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
 public class JSONTransactionalSerializer implements Serializer<TransactionalValue> {

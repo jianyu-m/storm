@@ -26,7 +26,7 @@ import org.apache.storm.generated.ClusterWorkerHeartbeat;
 import org.apache.storm.generated.ExecutorInfo;
 import org.apache.storm.generated.ExecutorStats;
 import org.apache.storm.generated.GlobalStreamId;
-import org.apache.storm.shade.com.google.common.collect.Lists;
+import com.google.common.collect.Lists;
 import org.apache.storm.utils.Time;
 
 /**

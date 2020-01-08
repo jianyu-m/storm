@@ -17,9 +17,9 @@ import java.util.Map;
 import org.apache.storm.Config;
 import org.apache.storm.serialization.KryoValuesDeserializer;
 import org.apache.storm.serialization.KryoValuesSerializer;
-import org.apache.storm.shade.io.netty.channel.Channel;
-import org.apache.storm.shade.io.netty.channel.ChannelInitializer;
-import org.apache.storm.shade.io.netty.channel.ChannelPipeline;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 
 class StormServerPipelineFactory extends ChannelInitializer<Channel> {
 

@@ -12,7 +12,7 @@
 
 package org.apache.storm.messaging.netty;
 
-import org.apache.storm.shade.io.netty.channel.Channel;
+import io.netty.channel.Channel;
 
 public interface ISaslServer extends IServer {
     String name();

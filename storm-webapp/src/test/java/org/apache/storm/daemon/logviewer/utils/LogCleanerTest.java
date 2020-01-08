@@ -52,7 +52,7 @@ import java.util.function.Predicate;
 import org.apache.storm.daemon.supervisor.SupervisorUtils;
 import org.apache.storm.generated.LSWorkerHeartbeat;
 import org.apache.storm.metric.StormMetricsRegistry;
-import org.apache.storm.shade.io.netty.util.internal.ThreadLocalRandom;
+import io.netty.util.internal.ThreadLocalRandom;
 import org.apache.storm.testing.TmpPath;
 import org.apache.storm.utils.Time;
 import org.apache.storm.utils.Utils;

@@ -25,7 +25,7 @@ import java.security.Principal;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.security.auth.Subject;
-import org.apache.storm.shade.com.google.common.annotations.VisibleForTesting;
+import com.google.common.annotations.VisibleForTesting;
 
 /**
  * Request context. Context request context includes info about:

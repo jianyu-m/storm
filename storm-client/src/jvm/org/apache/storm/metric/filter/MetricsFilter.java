@@ -14,7 +14,7 @@ package org.apache.storm.metric.filter;
 
 import java.io.Serializable;
 import org.apache.storm.metric.api.IMetricsConsumer;
-import org.apache.storm.shade.com.google.common.base.Predicate;
+import com.google.common.base.Predicate;
 
 public interface MetricsFilter extends Predicate<IMetricsConsumer.DataPoint>, Serializable {
 }

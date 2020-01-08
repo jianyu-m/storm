@@ -12,7 +12,7 @@
 
 package org.apache.storm.messaging.netty;
 
-import org.apache.storm.shade.io.netty.util.AttributeKey;
+import io.netty.util.AttributeKey;
 
 final class KerberosSaslNettyClientState {
 

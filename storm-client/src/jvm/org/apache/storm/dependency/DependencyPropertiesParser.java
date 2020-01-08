@@ -18,9 +18,9 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.storm.shade.com.google.common.collect.Lists;
-import org.apache.storm.shade.org.json.simple.JSONValue;
-import org.apache.storm.shade.org.json.simple.parser.ParseException;
+import com.google.common.collect.Lists;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.ParseException;
 
 public class DependencyPropertiesParser {
     public List<File> parseJarsProperties(String prop) {

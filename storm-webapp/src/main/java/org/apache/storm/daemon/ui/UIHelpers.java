@@ -86,7 +86,7 @@ import org.apache.storm.generated.TopologySummary;
 import org.apache.storm.generated.WorkerSummary;
 import org.apache.storm.logging.filters.AccessLoggingFilter;
 import org.apache.storm.stats.StatsUtil;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.IVersionInfo;
 import org.apache.storm.utils.ObjectReader;
 import org.apache.storm.utils.Time;

@@ -25,7 +25,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Map;
 
-import org.apache.storm.shade.org.apache.commons.io.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.storm.sql.runtime.IOutputSerializer;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;

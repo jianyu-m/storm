@@ -18,9 +18,9 @@ import org.apache.storm.generated.HBMessage;
 import org.apache.storm.generated.HBServerMessageType;
 import org.apache.storm.messaging.netty.ControlMessage;
 import org.apache.storm.messaging.netty.SaslMessageToken;
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
-import org.apache.storm.shade.io.netty.channel.ChannelHandlerContext;
-import org.apache.storm.shade.io.netty.handler.codec.ByteToMessageDecoder;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.ByteToMessageDecoder;
 import org.apache.storm.utils.Utils;
 
 public class ThriftDecoder extends ByteToMessageDecoder {

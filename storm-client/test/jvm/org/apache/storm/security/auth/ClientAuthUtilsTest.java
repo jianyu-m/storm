@@ -31,7 +31,7 @@ import javax.security.auth.Subject;
 import javax.security.auth.login.AppConfigurationEntry;
 import javax.security.auth.login.Configuration;
 import org.apache.storm.Config;
-import org.apache.storm.shade.org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.binary.Hex;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

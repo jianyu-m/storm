@@ -14,7 +14,7 @@ package org.apache.storm.messaging.netty;
 
 import java.util.ArrayList;
 import org.apache.storm.messaging.TaskMessage;
-import org.apache.storm.shade.io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBuf;
 
 class MessageBatch implements INettySerializable {
 

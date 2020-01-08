@@ -14,8 +14,8 @@ package org.apache.storm.streams;
 
 import java.util.List;
 import java.util.Map;
-import org.apache.storm.shade.com.google.common.collect.Multimap;
-import org.apache.storm.shade.org.jgrapht.DirectedGraph;
+import com.google.common.collect.Multimap;
+import org.jgrapht.DirectedGraph;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;

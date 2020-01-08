@@ -15,8 +15,8 @@ package org.apache.storm.cluster;
 import java.io.Closeable;
 import java.util.List;
 import org.apache.storm.callback.ZKStateChangedCallback;
-import org.apache.storm.shade.org.apache.curator.framework.state.ConnectionStateListener;
-import org.apache.storm.shade.org.apache.zookeeper.data.ACL;
+import org.apache.curator.framework.state.ConnectionStateListener;
+import org.apache.zookeeper.data.ACL;
 
 /**
  * StateStorage provides the API for the pluggable state store used by the Storm daemons. Data is stored in path/value

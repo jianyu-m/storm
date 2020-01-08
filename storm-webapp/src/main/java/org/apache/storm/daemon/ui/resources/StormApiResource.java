@@ -37,7 +37,7 @@ import javax.ws.rs.core.SecurityContext;
 
 import org.apache.storm.daemon.ui.UIHelpers;
 import org.apache.storm.metric.StormMetricsRegistry;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.NimbusClient;
 import org.apache.storm.utils.Utils;

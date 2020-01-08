@@ -22,9 +22,9 @@ import org.apache.storm.Config;
 import org.apache.storm.messaging.IConnection;
 import org.apache.storm.messaging.IConnectionCallback;
 import org.apache.storm.messaging.IContext;
-import org.apache.storm.shade.io.netty.channel.EventLoopGroup;
-import org.apache.storm.shade.io.netty.channel.nio.NioEventLoopGroup;
-import org.apache.storm.shade.io.netty.util.HashedWheelTimer;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.util.HashedWheelTimer;
 import org.apache.storm.utils.ObjectReader;
 
 public class Context implements IContext {

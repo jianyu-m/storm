@@ -25,7 +25,7 @@ import org.apache.storm.generated.AuthorizationException;
 import org.apache.storm.generated.DRPCExecutionException;
 import org.apache.storm.generated.DRPCRequest;
 import org.apache.storm.metric.StormMetricsRegistry;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.ServiceRegistry;
 

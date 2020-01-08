@@ -20,7 +20,7 @@ import org.apache.storm.daemon.supervisor.SupervisorUtils;
 import org.apache.storm.generated.LSWorkerHeartbeat;
 import org.apache.storm.generated.SupervisorWorkerHeartbeat;
 import org.apache.storm.generated.SupervisorWorkerHeartbeats;
-import org.apache.storm.thrift.TException;
+import org.apache.thrift.TException;
 import org.apache.storm.utils.ConfigUtils;
 import org.apache.storm.utils.NimbusClient;
 import org.slf4j.Logger;
